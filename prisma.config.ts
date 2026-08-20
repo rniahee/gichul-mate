@@ -9,7 +9,10 @@ export default defineConfig({
     path: "prisma/migrations",
   },
   datasource: {
-    url: process.env["DATABASE_URL"],
-    directUrl: process.env["DIRECT_URL"],
+    // CLI/마이그레이션 전용 (direct 연결). Prisma 7의 datasource 설정 타입에는
+    // directUrl 필드가 없어져서, CLI가 실제로 참조하는 값은 이 url 하나뿐임.
+    url: process.env["DIRECT_URL"],
   },
+  // DATABASE_URL(pooled, 6543)은 여기서는 안 쓰고, 나중에 lib/prisma.ts에서
+  // @prisma/adapter-pg에 직접 넘겨서 앱 런타임 쿼리용으로 사용할 예정.
 });

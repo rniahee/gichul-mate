@@ -11,3 +11,144 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+// 시험 종류 (필기/실기) — 향후 실기 확장 대비, 처음부터 분리
+enum ExamType {
+  WRITTEN     // 필기
+  PRACTICAL   // 실기 (지금은 데이터 없음, 스키마만 존재)
+}
+
+// 문제 유형 — 실기의 단답형/서술형까지 미리 정의
+enum QuestionType {
+  MULTIPLE_CHOICE   // 4지선다 (필기)
+  SHORT_ANSWER       // 단답형 (실기)
+  ESSAY              // 서술형/코드해석 (실기)
+}
+
+// 채점 방식 — 실기 서술형은 AI 채점으로 분기
+enum GradingType {
+  EXACT_MATCH   // 정답 일치 여부 (필기, 실기 단답형)
+  AI_RUBRIC     // AI가 루브릭 기반으로 채점 (실기 서술형)
+}
+
+model Subject {
+  id          String     @id @default(cuid())
+  examType    ExamType
+  name        String     // 예: "소프트웨어 설계"
+  order       Int        // 시험 내 과목 순서
+  questions   Question[]
+  topics      Topic[]
+}
+
+// 과목 하위의 세부 단원/태그 (취약점 분석 단위)
+model Topic {
+  id          String     @id @default(cuid())
+  subjectId   String
+  subject     Subject    @relation(fields: [subjectId], references: [id])
+  name        String     // 예: "OSI 7계층", "정규화"
+  questions   Question[]
+}
+
+model Question {
+  id             String        @id @default(cuid())
+  examType       ExamType
+  subjectId      String
+  subject        Subject       @relation(fields: [subjectId], references: [id])
+  topicId        String?
+  topic          Topic?        @relation(fields: [topicId], references: [id])
+  type           QuestionType  @default(MULTIPLE_CHOICE)
+  gradingType    GradingType   @default(EXACT_MATCH)
+
+  year           Int?          // 출제 연도 (예: 2024)
+  round          Int?          // 회차 (1/2/3회)
+  content        String        // 문제 지문
+  explanation    String?       // 기본 해설
+
+  choices        Choice[]      // 필기 4지선다용
+  correctAnswer  String?       // 단답형 정답 텍스트 (실기용, 지금은 미사용)
+  gradingRubric  String?       // 서술형 채점 기준 (실기용, 지금은 미사용)
+
+  createdAt      DateTime      @default(now())
+
+  userAnswers    UserAnswer[]
+  wrongNotes     WrongNote[]
+  bookmarks      Bookmark[]
+}
+
+model Choice {
+  id          String    @id @default(cuid())
+  questionId  String
+  question    Question  @relation(fields: [questionId], references: [id])
+  label       String    // "1", "2", "3", "4"
+  content     String
+  isCorrect   Boolean
+}
+
+// 사용자가 문제를 풀 때마다의 기록 (단건 풀이 + 모의고사 풀이 공용)
+model UserAnswer {
+  id            String     @id @default(cuid())
+  userId        String?    // 로그인 없이 쓸 경우 null 허용, 추후 계정 연동
+  questionId    String
+  question      Question   @relation(fields: [questionId], references: [id])
+  examSessionId String?    // 모의고사 중 풀었다면 세션 연결, 단건 풀이면 null
+  examSession   ExamSession? @relation(fields: [examSessionId], references: [id])
+
+  selectedChoiceId String?  // 필기 객관식 선택
+  submittedText    String?  // 실기 주관식 입력 (지금은 미사용)
+  isCorrect        Boolean
+  aiScore          Float?   // 실기 AI 채점 점수 (지금은 미사용)
+
+  answeredAt       DateTime @default(now())
+}
+
+// CBT 모의고사 세션
+model ExamSession {
+  id           String    @id @default(cuid())
+  userId       String?
+  examType     ExamType  @default(WRITTEN)
+  mode         String    // "FULL_100" | "SUBJECT_20" 등
+  startedAt    DateTime  @default(now())
+  finishedAt   DateTime?
+  totalScore   Float?
+  isPassed     Boolean?
+
+  answers      UserAnswer[]
+  subjectScores SubjectScore[]
+}
+
+// 모의고사의 과목별 채점 결과 (과락 판정용)
+model SubjectScore {
+  id            String       @id @default(cuid())
+  examSessionId String
+  examSession   ExamSession  @relation(fields: [examSessionId], references: [id])
+  subjectId     String
+  score         Float
+  isPassed      Boolean      // 40점 이상 여부
+}
+
+model WrongNote {
+  id           String    @id @default(cuid())
+  userId       String?
+  questionId   String
+  question     Question  @relation(fields: [questionId], references: [id])
+  wrongCount   Int       @default(1)
+  lastWrongAt  DateTime  @default(now())
+  nextReviewAt DateTime? // 간격 반복 스케줄용 (확장 기능)
+  resolved     Boolean   @default(false) // 더 이상 틀리지 않게 된 문제
+}
+
+model Bookmark {
+  id          String    @id @default(cuid())
+  userId      String?
+  questionId  String
+  question    Question  @relation(fields: [questionId], references: [id])
+  createdAt   DateTime  @default(now())
+}
+
+// AI 응답 캐시 (동일 문제에 대한 AI 해설 재요청 시 비용 절감)
+model AiExplanationCache {
+  id          String    @id @default(cuid())
+  questionId  String    @unique
+  content     String    // AI가 생성한 보충 해설
+  createdAt   DateTime  @default(now())
+}
