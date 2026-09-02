@@ -41,3 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 /app/generated/prisma
+
+# 기출문제 원본 PDF (저작물, DB 저장/재배포 금지 명시된 자료 — 절대 커밋 금지)
+/data/raw/
+# AI 추출 초안 (검수 전 상태 — 검수 완료 후 data/processed/로 옮기면 그때 커밋)
+/data/processed/draft/
