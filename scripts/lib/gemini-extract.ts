@@ -1,8 +1,16 @@
 import { readFile } from "node:fs/promises";
-import { GoogleGenAI, createPartFromBase64, createUserContent } from "@google/genai";
+import { ApiError, GoogleGenAI, createPartFromBase64, createUserContent } from "@google/genai";
 import type { ExtractedQuestion } from "./types";
 
 const MODEL = "gemini-3.5-flash";
+
+// 일일 무료 티어 쿼터 초과(429) — 재시도해도 소용없으므로 별도 타입으로 구분한다.
+export class QuotaExceededError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "QuotaExceededError";
+  }
+}
 
 // 해설(explanation) 필드는 스키마에 아예 없음 — 모델이 뭘 출력하든 담을 자리가 없다.
 const RESPONSE_SCHEMA = {
@@ -71,14 +79,22 @@ export async function extractQuestionsFromPages(imagePaths: string[]): Promise<E
     }),
   );
 
-  const response = await ai.models.generateContent({
-    model: MODEL,
-    contents: createUserContent([PROMPT, ...imageParts]),
-    config: {
-      responseMimeType: "application/json",
-      responseJsonSchema: RESPONSE_SCHEMA,
-    },
-  });
+  let response;
+  try {
+    response = await ai.models.generateContent({
+      model: MODEL,
+      contents: createUserContent([PROMPT, ...imageParts]),
+      config: {
+        responseMimeType: "application/json",
+        responseJsonSchema: RESPONSE_SCHEMA,
+      },
+    });
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 429) {
+      throw new QuotaExceededError(error.message);
+    }
+    throw error;
+  }
 
   const text = response.text;
   if (!text) {

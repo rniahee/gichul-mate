@@ -1,7 +1,7 @@
 import "dotenv/config";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { extractQuestionsFromPages } from "./lib/gemini-extract";
+import { QuotaExceededError, extractQuestionsFromPages } from "./lib/gemini-extract";
 import { renderPdfToImages } from "./lib/pdf-to-images";
 import type { ExtractedQuestion, ExtractionResult } from "./lib/types";
 
@@ -22,12 +22,17 @@ function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// 429(쿼터 초과)는 재시도해도 실패가 반복될 뿐이므로 즉시 던진다.
+// 그 외(503 등 일시적 오류)만 대기 후 재시도한다.
 async function extractWithRetry(imagePaths: string[]): Promise<ExtractedQuestion[]> {
   let lastError: unknown;
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     try {
       return await extractQuestionsFromPages(imagePaths);
     } catch (error) {
+      if (error instanceof QuotaExceededError) {
+        throw error;
+      }
       lastError = error;
       console.log(`     시도 ${attempt}/${MAX_ATTEMPTS} 실패: ${error instanceof Error ? error.message : error}`);
       if (attempt < MAX_ATTEMPTS) {
@@ -53,6 +58,24 @@ const SUBJECT_BY_QUESTION_NUMBER: { max: number; subjectName: string }[] = [
   { max: 100, subjectName: "정보시스템 구축관리" },
 ];
 
+// 같은 청크를 재호출했을 때(예: 이전에 놓친 문제를 다시 뽑기 위해 completedChunks에서
+// 해당 청크를 지우고 재실행) 문항번호가 같으면 새 결과로 덮어쓰고, 새 번호면 추가한다.
+// 문항번호를 못 읽은 경우(null)는 중복 판단이 불가능하므로 그냥 추가한다.
+function upsertQuestions(target: ExtractedQuestion[], incoming: ExtractedQuestion[]): void {
+  for (const q of incoming) {
+    if (q.questionNumber == null) {
+      target.push(q);
+      continue;
+    }
+    const existingIndex = target.findIndex((t) => t.questionNumber === q.questionNumber);
+    if (existingIndex === -1) {
+      target.push(q);
+    } else {
+      target[existingIndex] = q;
+    }
+  }
+}
+
 function backfillSubjectName(questions: ExtractedQuestion[]): number {
   let filled = 0;
   for (const q of questions) {
@@ -66,6 +89,15 @@ function backfillSubjectName(questions: ExtractedQuestion[]): number {
   return filled;
 }
 
+async function loadExistingDraft(outputPath: string): Promise<ExtractionResult | null> {
+  try {
+    const raw = await readFile(outputPath, "utf-8");
+    return JSON.parse(raw) as ExtractionResult;
+  } catch {
+    return null;
+  }
+}
+
 async function main() {
   const pdfPath = process.argv[2];
   if (!pdfPath) {
@@ -74,13 +106,34 @@ async function main() {
   }
 
   const absolutePdfPath = path.resolve(pdfPath);
-  console.log(`[1/4] PDF 페이지 렌더링 중: ${absolutePdfPath}`);
+  const outputDir = path.resolve("data/processed/draft");
+  await mkdir(outputDir, { recursive: true });
+  const outputBaseName = path.basename(absolutePdfPath, path.extname(absolutePdfPath));
+  const outputPath = path.join(outputDir, `${outputBaseName}.json`);
 
+  const existing = await loadExistingDraft(outputPath);
+  const questions: ExtractedQuestion[] = existing?.questions ?? [];
+  const completedChunks = new Set<string>(existing?.completedChunks ?? []);
+  if (existing) {
+    console.log(`이전 진행 상태 발견: 완료된 청크 ${completedChunks.size}개, 문제 ${questions.length}개 — 이어서 진행합니다.`);
+  }
+
+  const saveDraft = () => {
+    const result: ExtractionResult = {
+      sourceFile: path.basename(absolutePdfPath),
+      extractedAt: new Date().toISOString(),
+      completedChunks: [...completedChunks],
+      questions,
+    };
+    return writeFile(outputPath, JSON.stringify(result, null, 2), "utf-8");
+  };
+
+  console.log(`[1/4] PDF 페이지 렌더링 중: ${absolutePdfPath}`);
   const { pages, cleanup } = await renderPdfToImages(absolutePdfPath);
   console.log(`  → ${pages.length}페이지 렌더링 완료`);
 
-  const questions: ExtractedQuestion[] = [];
   const failedChunks: string[] = [];
+  let quotaExceeded = false;
 
   try {
     const pageChunks = chunk(pages, PAGES_PER_CHUNK);
@@ -90,15 +143,29 @@ async function main() {
       const pageChunk = pageChunks[i];
       const firstPage = pageChunk[0].pageNumber;
       const lastPage = pageChunk[pageChunk.length - 1].pageNumber;
-      console.log(`  → 청크 ${i + 1}/${pageChunks.length} (페이지 ${firstPage}-${lastPage}) 처리 중...`);
+      const chunkKey = `${firstPage}-${lastPage}`;
+
+      if (completedChunks.has(chunkKey)) {
+        console.log(`  → 청크 ${i + 1}/${pageChunks.length} (페이지 ${chunkKey}) 이미 완료됨, 건너뜀`);
+        continue;
+      }
+
+      console.log(`  → 청크 ${i + 1}/${pageChunks.length} (페이지 ${chunkKey}) 처리 중...`);
 
       try {
         const chunkQuestions = await extractWithRetry(pageChunk.map((p) => p.filePath));
         console.log(`     문제 ${chunkQuestions.length}개 발견`);
-        questions.push(...chunkQuestions);
+        upsertQuestions(questions, chunkQuestions);
+        completedChunks.add(chunkKey);
+        await saveDraft();
       } catch (error) {
+        if (error instanceof QuotaExceededError) {
+          console.log(`     일일 쿼터 소진: ${error.message}`);
+          quotaExceeded = true;
+          break;
+        }
         console.log(`     청크 ${i + 1} 최종 실패, 건너뜀: ${error instanceof Error ? error.message : error}`);
-        failedChunks.push(`페이지 ${firstPage}-${lastPage}`);
+        failedChunks.push(`페이지 ${chunkKey}`);
       }
     }
   } finally {
@@ -133,17 +200,7 @@ async function main() {
     subjectCounts.set(subjectKey, (subjectCounts.get(subjectKey) ?? 0) + 1);
   }
 
-  const result: ExtractionResult = {
-    sourceFile: path.basename(absolutePdfPath),
-    extractedAt: new Date().toISOString(),
-    questions,
-  };
-
-  const outputDir = path.resolve("data/processed/draft");
-  await mkdir(outputDir, { recursive: true });
-  const outputBaseName = path.basename(absolutePdfPath, path.extname(absolutePdfPath));
-  const outputPath = path.join(outputDir, `${outputBaseName}.json`);
-  await writeFile(outputPath, JSON.stringify(result, null, 2), "utf-8");
+  await saveDraft();
 
   console.log(`[4/4] 결과 저장 완료: ${outputPath}`);
   console.log("");
@@ -163,8 +220,14 @@ async function main() {
     console.log(`  - ${issue}`);
   }
   console.log("");
-  console.log(`검수 전 초안입니다: ${outputPath}`);
-  console.log(`검수 완료 후 data/processed/${outputBaseName}.json 으로 옮기면 커밋 대상이 됩니다.`);
+
+  if (quotaExceeded) {
+    console.log("⚠ 오늘 쿼터가 소진되어 중단했습니다. 진행 상황은 저장되었으니, 내일 쿼터 리셋 후");
+    console.log(`  같은 명령으로 다시 실행하면 완료된 청크는 건너뛰고 이어서 처리합니다.`);
+  } else {
+    console.log(`검수 전 초안입니다: ${outputPath}`);
+    console.log(`검수 완료 후 data/processed/${outputBaseName}.json 으로 옮기면 커밋 대상이 됩니다.`);
+  }
 }
 
 main().catch((error) => {
