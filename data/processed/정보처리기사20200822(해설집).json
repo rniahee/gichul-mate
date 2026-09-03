@@ -1,0 +1,2414 @@
+{
+  "sourceFile": "정보처리기사20200822(해설집).pdf",
+  "extractedAt": "2026-09-03T13:09:48.378Z",
+  "completedChunks": [
+    "1-5",
+    "5-9",
+    "9-13",
+    "13-17",
+    "17-21",
+    "21-22"
+  ],
+  "questions": [
+    {
+      "questionNumber": 1,
+      "subjectName": "소프트웨어 설계",
+      "content": "요구사항 분석 시에 필요한 기술로 가장 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "청취와 인터뷰 질문 기술"
+        },
+        {
+          "label": "2",
+          "content": "분석과 중재기술"
+        },
+        {
+          "label": "3",
+          "content": "설계 및 코딩 기술"
+        },
+        {
+          "label": "4",
+          "content": "관찰 및 모델 작성 기술"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 2,
+      "subjectName": "소프트웨어 설계",
+      "content": "다음 내용이 설명하는 디자인 패턴은?\n\n- 객체를 생성하기 위한 인터페이스를 정의하며 어떤 클래스가 인스턴스화 될 것인지는 서브클래스가 결정하도록 하는 것\n- Virtual-Constructor 패턴이라고도 함",
+      "choices": [
+        {
+          "label": "1",
+          "content": "Visitor패턴"
+        },
+        {
+          "label": "2",
+          "content": "Observer패턴"
+        },
+        {
+          "label": "3",
+          "content": "Factory Method 패턴"
+        },
+        {
+          "label": "4",
+          "content": "Bridge 패턴"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 3,
+      "subjectName": "소프트웨어 설계",
+      "content": "럼바우 객체 지향 분석과 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "기능 모델링"
+        },
+        {
+          "label": "2",
+          "content": "동적 모델링"
+        },
+        {
+          "label": "3",
+          "content": "객체 모델링"
+        },
+        {
+          "label": "4",
+          "content": "정적 모델링"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 4,
+      "subjectName": "소프트웨어 설계",
+      "content": "애자일 기법에 대한 설명으로 맞지 않은 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "절차와 도구보다 개인과 소통을 중요하게 생각한다."
+        },
+        {
+          "label": "2",
+          "content": "계획에 중점을 두어 변경 대응이 난해하다."
+        },
+        {
+          "label": "3",
+          "content": "소프트웨어가 잘 실행되는데 가치를 둔다."
+        },
+        {
+          "label": "4",
+          "content": "고객과의 피드백을 중요하게 생각한다."
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 5,
+      "subjectName": "소프트웨어 설계",
+      "content": "미들웨어 솔루션의 유형에 포함되지 않는 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "WAS"
+        },
+        {
+          "label": "2",
+          "content": "Web Server"
+        },
+        {
+          "label": "3",
+          "content": "RPC"
+        },
+        {
+          "label": "4",
+          "content": "ORB"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 6,
+      "subjectName": "소프트웨어 설계",
+      "content": "UML에서 시퀀스 다이어그램의 구성 항목에 해당하지 않는 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "생명선"
+        },
+        {
+          "label": "2",
+          "content": "실행"
+        },
+        {
+          "label": "3",
+          "content": "확장"
+        },
+        {
+          "label": "4",
+          "content": "메시지"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 7,
+      "subjectName": "소프트웨어 설계",
+      "content": "객체지향에서 정보 은닉과 가장 밀접한 관계가 있는 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "Encapsulation"
+        },
+        {
+          "label": "2",
+          "content": "Class"
+        },
+        {
+          "label": "3",
+          "content": "Method"
+        },
+        {
+          "label": "4",
+          "content": "Instance"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 8,
+      "subjectName": "소프트웨어 설계",
+      "content": "디자인 패턴 중에서 행위적 패턴에 속하지 않는 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "커맨드 (Command) 패턴"
+        },
+        {
+          "label": "2",
+          "content": "옵저버 (Observer) 패턴"
+        },
+        {
+          "label": "3",
+          "content": "프로토타입 (Prototype) 패턴"
+        },
+        {
+          "label": "4",
+          "content": "상태 (State) 패턴"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 9,
+      "subjectName": "소프트웨어 설계",
+      "content": "UI 설계 원칙 중 누구나 쉽게 이해하고 사용할 수 있어야 한다는 원칙은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "희소성"
+        },
+        {
+          "label": "2",
+          "content": "유연성"
+        },
+        {
+          "label": "3",
+          "content": "직관성"
+        },
+        {
+          "label": "4",
+          "content": "멀티운용성"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 10,
+      "subjectName": "소프트웨어 설계",
+      "content": "코드의 기본 기능으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "복잡성"
+        },
+        {
+          "label": "2",
+          "content": "표준화"
+        },
+        {
+          "label": "3",
+          "content": "분류"
+        },
+        {
+          "label": "4",
+          "content": "식별"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 11,
+      "subjectName": "소프트웨어 설계",
+      "content": "다음 ( ) 안에 들어갈 내용으로 옳은 것은?\n\n컴포넌트 설계 시 \"( )에 의한 설계\"를 따를 경우, 해당 명세에서는\n(1) 컴포넌트의 오퍼레이션 사용 전에 참이 되어야 할 선행조건\n(2) 사용 후 만족되어야 할 결과조건\n(3) 오퍼레이션이 실행되는 동안 항상 만족되어야 할 불변조건 등이 포함되어야 한다.",
+      "choices": [
+        {
+          "label": "1",
+          "content": "협약(Contract)"
+        },
+        {
+          "label": "2",
+          "content": "프로토콜(Protocol)"
+        },
+        {
+          "label": "3",
+          "content": "패턴(Pattern)"
+        },
+        {
+          "label": "4",
+          "content": "관계(Relation)"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 12,
+      "subjectName": "소프트웨어 설계",
+      "content": "UML에서 활용되는 다이어그램 중, 시스템의 동작을 표현하는 행위(Behavioral) 다이어그램에 해당하지 않는 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "유스케이스 다이어그램(Use Case Diagram)"
+        },
+        {
+          "label": "2",
+          "content": "시퀀스 다이어그램(Sequence Diagram)"
+        },
+        {
+          "label": "3",
+          "content": "활동 다이어그램(Activity Diagram)"
+        },
+        {
+          "label": "4",
+          "content": "배치 다이어그램(Deployment Diagram)"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 13,
+      "subjectName": "소프트웨어 설계",
+      "content": "객체 지향 소프트웨어 공학에서 하나 이상의 유사한 객체들을 묶어서 하나의 공통된 특성을 표현한 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "트랜지션"
+        },
+        {
+          "label": "2",
+          "content": "클래스"
+        },
+        {
+          "label": "3",
+          "content": "시퀀스"
+        },
+        {
+          "label": "4",
+          "content": "서브루틴"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 14,
+      "subjectName": "소프트웨어 설계",
+      "content": "아래의 UML 모델에서 '차' 클래스와 각 클래스의 관계로 옳은 것은?\n\n[그림 설명: 상단에 '차' 클래스가 있고 하단에 '버스', '트럭', '택시' 클래스가 있으며, 이들 세 클래스에서 상단의 '차' 클래스 쪽으로 실선 화살표(머리는 빈 삼각형 모양)가 연결되어 있다.]",
+      "choices": [
+        {
+          "label": "1",
+          "content": "추상화 관계"
+        },
+        {
+          "label": "2",
+          "content": "의존 관계"
+        },
+        {
+          "label": "3",
+          "content": "일반화 관계"
+        },
+        {
+          "label": "4",
+          "content": "그룹 관계"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 15,
+      "subjectName": "소프트웨어 설계",
+      "content": "객체지향 소프트웨어 설계시 디자인 패턴을 구성하는 요소로서 가장 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "개발자이름"
+        },
+        {
+          "label": "2",
+          "content": "문제 및 배경"
+        },
+        {
+          "label": "3",
+          "content": "사례"
+        },
+        {
+          "label": "4",
+          "content": "샘플코드"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 16,
+      "subjectName": "소프트웨어 설계",
+      "content": "자료 사전에서 자료의 반복을 의미하는 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "=\n"
+        },
+        {
+          "label": "2",
+          "content": "( )"
+        },
+        {
+          "label": "3",
+          "content": "{ }"
+        },
+        {
+          "label": "4",
+          "content": "[ ]"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 17,
+      "subjectName": "소프트웨어 설계",
+      "content": "객체지향 설계 원칙 중, 서브타입(상속받은 하위 클래스)은 어디서나 자신의 기반타입(상위클래스)으로 교체할 수 있어야 함을 의미하는 원칙은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "ISP(Interface Segregation Principle)"
+        },
+        {
+          "label": "2",
+          "content": "DIP(Dependency Inversion Principle)"
+        },
+        {
+          "label": "3",
+          "content": "LSP(Liskov Substitution Principle)"
+        },
+        {
+          "label": "4",
+          "content": "SRP(Single Responsibility Principle)"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 18,
+      "subjectName": "소프트웨어 설계",
+      "content": "자료흐름도(Data Flow Diagram)의 구성요소로 옳은 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "process, data flow, data store, comment"
+        },
+        {
+          "label": "2",
+          "content": "process, data flow, data store, terminator"
+        },
+        {
+          "label": "3",
+          "content": "data flow, data store, terminator, data dictionary"
+        },
+        {
+          "label": "4",
+          "content": "process, data store, terminator, mini-spec"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 19,
+      "subjectName": "소프트웨어 설계",
+      "content": "CASE(Computer-Aided Software Engineering)도구에 대한 설명으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "소프트웨어 개발 과정의 일부 또는 전체를 자동화하기 위한 도구이다."
+        },
+        {
+          "label": "2",
+          "content": "표준화된 개발 환경 구축 및 문서 자동화 기능을 제공한다."
+        },
+        {
+          "label": "3",
+          "content": "작업 과정 및 데이터 공유를 통해 작업자간 커뮤니케이션을 증대한다."
+        },
+        {
+          "label": "4",
+          "content": "2000년대 이후 소개되었으며, 객체지향 시스템에 한해 효과적으로 활용된다."
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 20,
+      "subjectName": "소프트웨어 설계",
+      "content": "인터페이스 요구 사항 검토 방법에 대한 설명이 옳은 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "리팩토링 : 작성자 이외의 전문 검토 그룹이 요구사항 명세서를 상세히 조사하여 결함, 표준 위배, 문제점 등을 파악"
+        },
+        {
+          "label": "2",
+          "content": "동료검토 : 요구 사항 명세서 작성자가 요구 사항 명세서를 설명하고 이해관계자들이 설명을 들으면서 결함을 발견"
+        },
+        {
+          "label": "3",
+          "content": "인스펙션 : 자동화된 요구 사항 관리 도구를 이용하여 요구 사항 추적성과 일관성을 검토"
+        },
+        {
+          "label": "4",
+          "content": "CASE 도구 : 검토 자료를 회의 전에 배포해서 사전 검토한 후 짧은 시간 동안 검토 회의를 진행하면서 결함을 발견"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 21,
+      "subjectName": "소프트웨어 개발",
+      "content": "인터페이스 보안을 위해 네트워크 영역에 적용될 수 있는 솔루션과 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "IPSec"
+        },
+        {
+          "label": "2",
+          "content": "SSL"
+        },
+        {
+          "label": "3",
+          "content": "SMTP"
+        },
+        {
+          "label": "4",
+          "content": "S-HTTP"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 22,
+      "subjectName": "소프트웨어 개발",
+      "content": "소프트웨어 공학의 기본 원칙이라고 볼 수 없는 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "품질 높은 소프트웨어 상품 개발"
+        },
+        {
+          "label": "2",
+          "content": "지속적인 검증 시행"
+        },
+        {
+          "label": "3",
+          "content": "결과에 대한 명확한 기록 유지"
+        },
+        {
+          "label": "4",
+          "content": "최대한 많은 인력 투입"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 23,
+      "subjectName": "소프트웨어 개발",
+      "content": "패키지 소프트웨어의 일반적인 제품 품질 요구사항 및 테스트를 위한 국제 표준은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "ISO/IEC 2196"
+        },
+        {
+          "label": "2",
+          "content": "IEEE 19554"
+        },
+        {
+          "label": "3",
+          "content": "ISO/IEC 12119"
+        },
+        {
+          "label": "4",
+          "content": "ISO/IEC 14959"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 24,
+      "subjectName": "소프트웨어 개발",
+      "content": "다음 중 클린 코드 작성원칙으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "누구든지 쉽게 이해하는 코드 작성"
+        },
+        {
+          "label": "2",
+          "content": "중복이 최대화된 코드 작성"
+        },
+        {
+          "label": "3",
+          "content": "다른 모듈에 미치는 영향 최소화"
+        },
+        {
+          "label": "4",
+          "content": "단순, 명료한 코드 작성"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 25,
+      "subjectName": "소프트웨어 개발",
+      "content": "블랙박스 테스트의 유형으로 틀린 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "경계값 분석"
+        },
+        {
+          "label": "2",
+          "content": "오류 예측"
+        },
+        {
+          "label": "3",
+          "content": "동등 분할 기법"
+        },
+        {
+          "label": "4",
+          "content": "조건, 루프 검사"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 26,
+      "subjectName": "소프트웨어 개발",
+      "content": "제어흐름 그래프가 다음과 같을 때 McCabe의 cyclomatic 수는 얼마인가?\n\n[그래프 구조]\n- 노드: a, b, c, d\n- 방향성 에지: a->b, a->d, b->c, d->c, c->b, c->d",
+      "choices": [
+        {
+          "label": "1",
+          "content": "3"
+        },
+        {
+          "label": "2",
+          "content": "4"
+        },
+        {
+          "label": "3",
+          "content": "5"
+        },
+        {
+          "label": "4",
+          "content": "6"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 27,
+      "subjectName": "소프트웨어 개발",
+      "content": "다음 자료에 대하여 선택(Selection) 정렬을 이용하여 오름차순으로 정렬하고자 한다. 3회전 후의 결과로 옳은 것은?\n\n[ 37, 14, 17, 40, 35 ]",
+      "choices": [
+        {
+          "label": "1",
+          "content": "14, 17, 37, 40, 35"
+        },
+        {
+          "label": "2",
+          "content": "14, 37, 17, 40, 35"
+        },
+        {
+          "label": "3",
+          "content": "17, 14, 37, 35, 40"
+        },
+        {
+          "label": "4",
+          "content": "14, 17, 35, 40, 37"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 28,
+      "subjectName": "소프트웨어 개발",
+      "content": "형상 관리 도구의 주요 기능으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "정규화(Normalization)"
+        },
+        {
+          "label": "2",
+          "content": "체크인(Check-in)"
+        },
+        {
+          "label": "3",
+          "content": "체크아웃(Check-out)"
+        },
+        {
+          "label": "4",
+          "content": "커밋(commit)"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 29,
+      "subjectName": "소프트웨어 개발",
+      "content": "다음 트리를 Preorder 운행법으로 운행할 경우 가장 먼저 탐색되는 것은?\n\n[이진 트리 구조]\n- 루트: A\n- A의 자식: B, C\n- B의 자식: D, E\n- E의 자식: G, H\n- C의 자식: F",
+      "choices": [
+        {
+          "label": "1",
+          "content": "A"
+        },
+        {
+          "label": "2",
+          "content": "B"
+        },
+        {
+          "label": "3",
+          "content": "D"
+        },
+        {
+          "label": "4",
+          "content": "G"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 30,
+      "subjectName": "소프트웨어 개발",
+      "content": "소프트웨어 품질 목표 중 주어진 시간동안 주어진 기능을 오류없이 수행하는 정도를 나타내는 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "직관성"
+        },
+        {
+          "label": "2",
+          "content": "사용 용이성"
+        },
+        {
+          "label": "3",
+          "content": "신뢰성"
+        },
+        {
+          "label": "4",
+          "content": "이식성"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 31,
+      "subjectName": "소프트웨어 개발",
+      "content": "알고리즘 설계 기법으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "Divide and Conquer"
+        },
+        {
+          "label": "2",
+          "content": "Greedy"
+        },
+        {
+          "label": "3",
+          "content": "Static Block"
+        },
+        {
+          "label": "4",
+          "content": "Backtracking"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 32,
+      "subjectName": "소프트웨어 개발",
+      "content": "제품 소프트웨어의 형상 관리 역할로 틀린 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "형상 관리를 통해 이전 리비전이나 버전에 대한 정보에 접근 가능하여 배포본 관리에 유용"
+        },
+        {
+          "label": "2",
+          "content": "불필요한 사용자의 소스 수정 제한"
+        },
+        {
+          "label": "3",
+          "content": "프로젝트 개발비용을 효율적으로 관리"
+        },
+        {
+          "label": "4",
+          "content": "동일한 프로젝트에 대해 여러 개발자 동시 개발 가능"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 33,
+      "subjectName": "소프트웨어 개발",
+      "content": "제품 소프트웨어 패키징 도구 활용 시 고려사항이 아닌 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "제품 소프트웨어의 종류에 적합한 암호화 알고리즘을 고려한다."
+        },
+        {
+          "label": "2",
+          "content": "추가로 다양한 이기종 연동을 고려한다."
+        },
+        {
+          "label": "3",
+          "content": "사용자 편의성을 위한 복잡성 및 비효율성 문제를 고려한다."
+        },
+        {
+          "label": "4",
+          "content": "내부 콘텐츠에 대한 보안은 고려하지 않는다."
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 34,
+      "subjectName": "소프트웨어 개발",
+      "content": "디지털 저작권 관리(DRM) 기술과 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "콘텐츠 암호화 및 키 관리"
+        },
+        {
+          "label": "2",
+          "content": "콘텐츠 식별체계 표현"
+        },
+        {
+          "label": "3",
+          "content": "콘텐츠 오류 감지 및 복구"
+        },
+        {
+          "label": "4",
+          "content": "라이센스 발급 및 관리"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 35,
+      "subjectName": "소프트웨어 개발",
+      "content": "물리데이터 저장소의 파티션 설계에서 파티션 유형으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "범위분할(Range Partitioning)"
+        },
+        {
+          "label": "2",
+          "content": "해시분할(Hash Partitioning)"
+        },
+        {
+          "label": "3",
+          "content": "조합분할(Composite Partitioning)"
+        },
+        {
+          "label": "4",
+          "content": "유닛분할(Unit Partitioning)"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 36,
+      "subjectName": "소프트웨어 개발",
+      "content": "다음이 설명하는 애플리케이션 통합 테스트 유형은?\n\n- 깊이 우선 방식 또는 너비 우선 방식이 있다.\n- 상위 컴포넌트를 테스트 하고 점증적으로 하위 컴포넌트를 테스트 한다.\n- 하위 컴포넌트 개발이 완료되지 않은 경우 스텁(Stub)을 사용하기도 한다.",
+      "choices": [
+        {
+          "label": "1",
+          "content": "하향식 통합 테스트"
+        },
+        {
+          "label": "2",
+          "content": "상향식 통합 테스트"
+        },
+        {
+          "label": "3",
+          "content": "회귀 테스트"
+        },
+        {
+          "label": "4",
+          "content": "빅뱅 테스트"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 37,
+      "subjectName": "소프트웨어 개발",
+      "content": "인터페이스 구현시 사용하는 기술 중 다음 내용이 설명하는 것은?\n\n[설명]\nJavaScript를 사용한 비동기 통신기술로 클라이언트와 서버간에 XML 데이터를 주고 받는 기술",
+      "choices": [
+        {
+          "label": "1",
+          "content": "Procedure"
+        },
+        {
+          "label": "2",
+          "content": "Trigger"
+        },
+        {
+          "label": "3",
+          "content": "Greedy"
+        },
+        {
+          "label": "4",
+          "content": "AJAX"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 38,
+      "subjectName": "소프트웨어 개발",
+      "content": "소프트웨어 재공학이 소프트웨어의 재개발에 비해 갖는 장점으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "위험부담 감소"
+        },
+        {
+          "label": "2",
+          "content": "비용 절감"
+        },
+        {
+          "label": "3",
+          "content": "시스템 명세의 오류억제"
+        },
+        {
+          "label": "4",
+          "content": "개발시간의 증가"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 39,
+      "subjectName": "소프트웨어 개발",
+      "content": "알파, 베타 테스트와 가장 밀접한 연관이 있는 테스트 단계는?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "단위 테스트"
+        },
+        {
+          "label": "2",
+          "content": "인수 테스트"
+        },
+        {
+          "label": "3",
+          "content": "통합 테스트"
+        },
+        {
+          "label": "4",
+          "content": "시스템 테스트"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 40,
+      "subjectName": "소프트웨어 개발",
+      "content": "다음 트리의 차수(degree)는?\n\n[트리 구조]\n- 루트: A\n- A의 자식: B, C\n- B의 자식: D, E, F\n- E의 자식: H, I\n- C의 자식: G",
+      "choices": [
+        {
+          "label": "1",
+          "content": "2"
+        },
+        {
+          "label": "2",
+          "content": "3"
+        },
+        {
+          "label": "3",
+          "content": "4"
+        },
+        {
+          "label": "4",
+          "content": "5"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 41,
+      "subjectName": "데이터베이스 구축",
+      "content": "릴레이션 R의 모든 결정자(determinant)가 후보키이면 그 릴레이션 R은 어떤 정규형에 속하는가?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "제 1 정규형"
+        },
+        {
+          "label": "2",
+          "content": "제 2 정규형"
+        },
+        {
+          "label": "3",
+          "content": "보이스/코드 정규형"
+        },
+        {
+          "label": "4",
+          "content": "제 4 정규형"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 42,
+      "subjectName": "데이터베이스 구축",
+      "content": "다음 관계형 데이터 모델에 대한 설명으로 옳은 것은?\n\n[고객ID | 고객이름 | 거주도시]\n[S1 | 홍길동 | 서울]\n[S2 | 이정재 | 인천]\n[S3 | 신보라 | 인천]\n[S4 | 김흥국 | 서울]\n[S5 | 도요새 | 용민]",
+      "choices": [
+        {
+          "label": "1",
+          "content": "relation 3개, attribute 3개, tuple 5개"
+        },
+        {
+          "label": "2",
+          "content": "relation 3개, attribute 5개, tuple 3개"
+        },
+        {
+          "label": "3",
+          "content": "relation 1개, attribute 5개, tuple 3개"
+        },
+        {
+          "label": "4",
+          "content": "relation 1개, attribute 3개, tuple 5개"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 43,
+      "subjectName": "데이터베이스 구축",
+      "content": "Commit과 Rollback 명령어에 의해 보장 받는 트랜잭션의 특성은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "병행성"
+        },
+        {
+          "label": "2",
+          "content": "보안성"
+        },
+        {
+          "label": "3",
+          "content": "원자성"
+        },
+        {
+          "label": "4",
+          "content": "로그"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 44,
+      "subjectName": "데이터베이스 구축",
+      "content": "관계 데이터베이스인 테이블 R1에 대한 아래 SQL 문의 실행결과로 옳은 것은?\n\n[ R1 ]\n학번 | 이름 | 학년 | 학과 | 주소\n1000 | 홍길동 | 1 | 컴퓨터공학 | 서울\n2000 | 김철수 | 1 | 전기공학 | 경기\n3000 | 강남길 | 2 | 전자공학 | 경기\n4000 | 오말자 | 2 | 컴퓨터공학 | 경기\n5000 | 장미화 | 3 | 전자공학 | 서울\n\n[ SQL 문 ]\nSELECT DISTINCT 학년 FROM R1;",
+      "choices": [
+        {
+          "label": "1",
+          "content": "[학년]\n1\n1\n2\n2\n3"
+        },
+        {
+          "label": "2",
+          "content": "[학년]\n1\n2\n3"
+        },
+        {
+          "label": "3",
+          "content": "[이름 | 학년]\n홍길동 | 1\n김철수 | 1\n강남길 | 2\n오말자 | 2\n장미화 | 3"
+        },
+        {
+          "label": "4",
+          "content": "[이름 | 학년]\n홍길동 | 1\n강남길 | 2\n장미화 | 3"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 45,
+      "subjectName": "데이터베이스 구축",
+      "content": "DCL(Data Control Language) 명령어인 것이 아닌 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "COMMIT"
+        },
+        {
+          "label": "2",
+          "content": "ROLLBACK"
+        },
+        {
+          "label": "3",
+          "content": "GRANT"
+        },
+        {
+          "label": "4",
+          "content": "SELECT"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 46,
+      "subjectName": "데이터베이스 구축",
+      "content": "병행제어 기법 중 로킹에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "로킹의 대상이 되는 객체의 크기를 로킹 단위라고 한다."
+        },
+        {
+          "label": "2",
+          "content": "데이터베이스, 파일, 레코드 등은 로킹 단위가 될 수 있다."
+        },
+        {
+          "label": "3",
+          "content": "로킹의 단위가 작아지면 로킹 오버헤드가 증가한다."
+        },
+        {
+          "label": "4",
+          "content": "로킹의 단위가 커지면 데이터베이스 공유도가 증가한다."
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 47,
+      "subjectName": "데이터베이스 구축",
+      "content": "관계 데이터모델의 무결성 제약 중 기본키 값의 속성 값이 널(Null)값이 아닌 원래 값을 갖는 성질은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "개체 무결성"
+        },
+        {
+          "label": "2",
+          "content": "참조 무결성"
+        },
+        {
+          "label": "3",
+          "content": "도메인 무결성"
+        },
+        {
+          "label": "4",
+          "content": "튜플의 유일성"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 48,
+      "subjectName": "데이터베이스 구축",
+      "content": "뷰(View)의 장점이 아닌 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "뷰 자체로 인덱스를 가짐"
+        },
+        {
+          "label": "2",
+          "content": "데이터 보안 용이"
+        },
+        {
+          "label": "3",
+          "content": "논리적 독립성 제공"
+        },
+        {
+          "label": "4",
+          "content": "사용자 데이터 관리 용이"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 49,
+      "subjectName": "데이터베이스 구축",
+      "content": "분산 데이터베이스의 투명성(Transparency)에 해당 하지 않는 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "Location Transparency"
+        },
+        {
+          "label": "2",
+          "content": "Replication Transparency"
+        },
+        {
+          "label": "3",
+          "content": "Failure Transparency"
+        },
+        {
+          "label": "4",
+          "content": "Media Access Transparency"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 50,
+      "subjectName": "데이터베이스 구축",
+      "content": "정규화의 목적으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "어떠한 릴레이션이라도 데이터베이스 내에서 표현 가능하게 만든다."
+        },
+        {
+          "label": "2",
+          "content": "데이터 삽입시 릴레이션을 재구성할 필요성을 줄인다."
+        },
+        {
+          "label": "3",
+          "content": "중복을 배제하여 삽입, 삭제, 갱신 이상의 발생을 야기한다."
+        },
+        {
+          "label": "4",
+          "content": "효과적인 검색 알고리즘을 생성할 수 있다."
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 51,
+      "subjectName": "데이터베이스 구축",
+      "content": "다음에 해당하는 함수 종속의 추론 규칙은?\n\n[ X→Y이고 Y→Z이면 X→Z이다. ]",
+      "choices": [
+        {
+          "label": "1",
+          "content": "분해 규칙"
+        },
+        {
+          "label": "2",
+          "content": "이행 규칙"
+        },
+        {
+          "label": "3",
+          "content": "반사 규칙"
+        },
+        {
+          "label": "4",
+          "content": "결합 규칙"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 52,
+      "subjectName": "데이터베이스 구축",
+      "content": "다음 R과 S 두 릴레이션에 대한 Division 연산의 수행 결과는?\n\n[ R ]\nD1 | D2 | D3\na | 1 | A\nb | 1 | A\nc | 2 | A\nd | 2 | B\n\n[ S ]\nD2 | D3\n1 | A",
+      "choices": [
+        {
+          "label": "1",
+          "content": "[D3]\nA\nB"
+        },
+        {
+          "label": "2",
+          "content": "[D2]\n2\n2"
+        },
+        {
+          "label": "3",
+          "content": "[D3]\nA"
+        },
+        {
+          "label": "4",
+          "content": "[D1]\na\nb"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 53,
+      "subjectName": "데이터베이스 구축",
+      "content": "player 테이블에는 player_name, team_id, height 컬럼이 존재한다. 아래 SQL문에서 문법적 오류가 있는 부분은?\n\n(1) SELECT player_name, height\n(2) FROM player\n(3) WHERE team_id = 'Korea'\n(4) AND height BETWEEN 170 or 180;",
+      "choices": [
+        {
+          "label": "1",
+          "content": "(1)"
+        },
+        {
+          "label": "2",
+          "content": "(2)"
+        },
+        {
+          "label": "3",
+          "content": "(3)"
+        },
+        {
+          "label": "4",
+          "content": "(4)"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 54,
+      "subjectName": "데이터베이스 구축",
+      "content": "데이터베이스 로그(log)를 필요로 하는 회복 기법은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "즉각 갱신 기법"
+        },
+        {
+          "label": "2",
+          "content": "대수적 코딩 방법"
+        },
+        {
+          "label": "3",
+          "content": "타임 스탬프 기법"
+        },
+        {
+          "label": "4",
+          "content": "폴딩 기법"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 55,
+      "subjectName": "데이터베이스 구축",
+      "content": "DML(Data Manipulation Language) 명령어가 아닌 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "INSERT"
+        },
+        {
+          "label": "2",
+          "content": "UPDATE"
+        },
+        {
+          "label": "3",
+          "content": "ALTER"
+        },
+        {
+          "label": "4",
+          "content": "DELETE"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 56,
+      "subjectName": "데이터베이스 구축",
+      "content": "다음과 같이 위쪽 릴레이션을 아래쪽 릴레이션으로 정규화를 하였을 때 어떤 정규화 작업을 한 것인가?\n\n[위쪽 릴레이션]\n| 국가 | 도시 |\n|---|---|\n| 대한민국 | 서울, 부산 |\n| 미국 | 워싱턴, 뉴욕 |\n| 중국 | 베이징 |\n\n↓\n\n[아래쪽 릴레이션]\n| 국가 | 도시 |\n|---|---|\n| 대한민국 | 서울 |\n| 대한민국 | 부산 |\n| 미국 | 워싱턴 |\n| 미국 | 뉴욕 |\n| 중국 | 베이징 |",
+      "choices": [
+        {
+          "label": "1",
+          "content": "제1정규형"
+        },
+        {
+          "label": "2",
+          "content": "제2정규형"
+        },
+        {
+          "label": "3",
+          "content": "제3정규형"
+        },
+        {
+          "label": "4",
+          "content": "제4정규형"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 57,
+      "subjectName": "데이터베이스 구축",
+      "content": "관계대수의 순수관계 연산자가 아닌 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "Select"
+        },
+        {
+          "label": "2",
+          "content": "Cartesian Product"
+        },
+        {
+          "label": "3",
+          "content": "Division"
+        },
+        {
+          "label": "4",
+          "content": "Project"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 58,
+      "subjectName": "데이터베이스 구축",
+      "content": "다음 중 SQL의 집계 함수(aggregation function)가 아닌 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "AVG"
+        },
+        {
+          "label": "2",
+          "content": "COUNT"
+        },
+        {
+          "label": "3",
+          "content": "SUM"
+        },
+        {
+          "label": "4",
+          "content": "CREATE"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 59,
+      "subjectName": "데이터베이스 구축",
+      "content": "릴레이션 조작 시 데이터들이 불필요하게 중복되어 예기치 않게 발생하는 곤란한 현상을 의미하는 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "normalization"
+        },
+        {
+          "label": "2",
+          "content": "rollback"
+        },
+        {
+          "label": "3",
+          "content": "cardinality"
+        },
+        {
+          "label": "4",
+          "content": "anomaly"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 60,
+      "subjectName": "데이터베이스 구축",
+      "content": "릴레이션에 대한 설명으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "튜플들의 삽입, 삭제 등의 작업으로 인해 릴레이션은 시간에 따라 변한다."
+        },
+        {
+          "label": "2",
+          "content": "한 릴레이션에 포함된 튜플들은 모두 상이하다."
+        },
+        {
+          "label": "3",
+          "content": "애트리뷰트는 논리적으로 쪼갤 수 없는 원자값으로 저장한다."
+        },
+        {
+          "label": "4",
+          "content": "한 릴레이션에 포함된 튜플 사이에는 순서가 있다."
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 61,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "다음 자바 프로그램 조건문에 대해 삼항 조건 연산자를 사용하여 옳게 나타낸 것은?\n\n```java\nInt i = 7, j = 9;\nint k;\nif (i > j)\n    k = i - j;\nelse\n    k = i + j;\n```",
+      "choices": [
+        {
+          "label": "1",
+          "content": "int i = 7, j = 9;\nint k;\nk = (i>j)?(i - j):(i + j);"
+        },
+        {
+          "label": "2",
+          "content": "int i = 7, j = 9;\nint k;\nk = (i<j)?(i - j):(i + j);"
+        },
+        {
+          "label": "3",
+          "content": "int i = 7, j = 9;\nint k;\nk = (i>j)?(i + j):(i - j);"
+        },
+        {
+          "label": "4",
+          "content": "int i = 7, j = 9;\nint k;\nk = (i<j)?(i + j):(i - j);"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 62,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "다음 내용이 설명하는 소프트웨어 취약점은?\n\n* 메모리를 다루는 데 오류가 발생하여 잘못된 동작을 하는 프로그램 취약점",
+      "choices": [
+        {
+          "label": "1",
+          "content": "FTP 바운스 공격"
+        },
+        {
+          "label": "2",
+          "content": "SQL 삽입"
+        },
+        {
+          "label": "3",
+          "content": "버퍼 오버플로"
+        },
+        {
+          "label": "4",
+          "content": "디렉토리 접근 공격"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 63,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "다음 중 bash 쉘 스크립트에서 사용할 수 있는 제어문이 아닌 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "if"
+        },
+        {
+          "label": "2",
+          "content": "for"
+        },
+        {
+          "label": "3",
+          "content": "repeat_do"
+        },
+        {
+          "label": "4",
+          "content": "while"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 64,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "IPv6에 대한 설명으로 틀린 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "32비트의 주소체계를 사용한다."
+        },
+        {
+          "label": "2",
+          "content": "멀티미디어의 실시간 처리가 가능하다."
+        },
+        {
+          "label": "3",
+          "content": "IPv4보다 보안성이 강화되었다."
+        },
+        {
+          "label": "4",
+          "content": "자동으로 네트워크 환경구성이 가능하다."
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 65,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "효과적인 모듈 설계를 위한 유의사항으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "모듈간의 결합도를 약하게 하면 모듈 독립성이 향상된다."
+        },
+        {
+          "label": "2",
+          "content": "복잡도와 중복성을 줄이고 일관성을 유지시킨다."
+        },
+        {
+          "label": "3",
+          "content": "모듈의 기능은 예측이 가능해야 하며 지나치게 제한적이어야 한다."
+        },
+        {
+          "label": "4",
+          "content": "유지보수가 용이해야 한다."
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 66,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "HRN 방식으로 스케줄링 할 경우, 입력된 작업이 다음과 같을 때 처리되는 작업 순서로 옳은 것은?\n\n| 작업 | 대기시간 | 서비스(실행)시간 |\n|---|---|---|\n| A | 5 | 20 |\n| B | 40 | 20 |\n| C | 15 | 45 |\n| D | 20 | 2 |",
+      "choices": [
+        {
+          "label": "1",
+          "content": "A→B→C→D"
+        },
+        {
+          "label": "2",
+          "content": "A→C→B→D"
+        },
+        {
+          "label": "3",
+          "content": "D→B→C→A"
+        },
+        {
+          "label": "4",
+          "content": "D→A→B→C"
+        }
+      ],
+      "correctLabel": null
+    },
+    {
+      "questionNumber": 67,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "운영체제에 대한 설명으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "다중 사용자와 다중 응용프로그램 환경에서 자원의 현재 상태를 파악하고 자원 분배를 위한 스케줄링을 담당한다."
+        },
+        {
+          "label": "2",
+          "content": "CPU, 메모리 공간, 기억 장치, 입출력 장치 등의 자원을 관리한다."
+        },
+        {
+          "label": "3",
+          "content": "운영체제의 종류로는 매크로 프로세서, 어셈블러, 컴파일러 등이 있다."
+        },
+        {
+          "label": "4",
+          "content": "입출력 장치와 사용자 프로그램을 제어한다."
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 68,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "배치 프로그램의 필수 요소에 대한 설명으로 틀린 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "자동화는 심각한 오류 상황 외에는 사용자의 개입 없이 동작해야 한다."
+        },
+        {
+          "label": "2",
+          "content": "안정성은 어떤 문제가 생겼는지, 언제 발생했는지 등을 추적할 수 있어야 한다."
+        },
+        {
+          "label": "3",
+          "content": "대용량 데이터는 대용량의 데이터를 처리할 수 있어야 한다."
+        },
+        {
+          "label": "4",
+          "content": "무결성은 주어진 시간 내에 처리를 완료할 수 있어야 하고, 동시에 동작하고 있는 다른 애플리케이션을 방해하지 말아야 한다."
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 69,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "TCP 프로토콜에 대한 설명으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "신뢰성이 있는 연결 지향형 전달 서비스이다."
+        },
+        {
+          "label": "2",
+          "content": "기본 헤더 크기는 100byte이고 160byte까지 확장 가능하다."
+        },
+        {
+          "label": "3",
+          "content": "스트림 전송 기능을 제공한다."
+        },
+        {
+          "label": "4",
+          "content": "순서제어, 오류제어, 흐름제어 기능을 제공한다."
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 70,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "다음이 설명하는 응집도의 유형은?\n\n* 모듈이 다수의 관련 기능을 가질 때 모듈만의 구성 요소들이 그 기능을 순차적으로 수행할 경우의 응집도",
+      "choices": [
+        {
+          "label": "1",
+          "content": "기능적 응집도"
+        },
+        {
+          "label": "2",
+          "content": "우연적 응집도"
+        },
+        {
+          "label": "3",
+          "content": "논리적 응집도"
+        },
+        {
+          "label": "4",
+          "content": "절차적 응집도"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 71,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "OSI-7Layer에서 링크의 설정과 유지 및 종료를 담당하며, 노드간의 오류제어와 흐름제어 기능을 수행하는 계층은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "데이터링크 계층"
+        },
+        {
+          "label": "2",
+          "content": "물리 계층"
+        },
+        {
+          "label": "3",
+          "content": "세션 계층"
+        },
+        {
+          "label": "4",
+          "content": "응용 계층"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 72,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "다음 중 가장 결합도가 강한 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "data coupling"
+        },
+        {
+          "label": "2",
+          "content": "stamp coupling"
+        },
+        {
+          "label": "3",
+          "content": "common coupling"
+        },
+        {
+          "label": "4",
+          "content": "control coupling"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 73,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "메모리 관리 기법 중 Worst fit 방법을 사용할 경우 10K 크기의 프로그램 실행을 위해서는 어느 부분에 할당되는가?\\n\\n[영역번호 | 메모리크기 | 사용여부]\\nNO.1 | 8K | FREE\\nNO.2 | 12K | FREE\\nNO.3 | 10K | IN USE\\nNO.4 | 20K | IN USE\\nNO.5 | 16K | FREE",
+      "choices": [
+        {
+          "label": "1",
+          "content": "NO.2"
+        },
+        {
+          "label": "2",
+          "content": "NO.3"
+        },
+        {
+          "label": "3",
+          "content": "NO.4"
+        },
+        {
+          "label": "4",
+          "content": "NO.5"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 74,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "200.1.1.0/24 네트워크를 FLSM 방식을 이용하여 10개의 Subnet으로 나누고 ip subnet-zero를 적용했다. 이때 서브네팅된 네트워크 중 10번째 네트워크의 broadcast IP주소는?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "200.1.1.159"
+        },
+        {
+          "label": "2",
+          "content": "201.1.5.175"
+        },
+        {
+          "label": "3",
+          "content": "202.1.11.254"
+        },
+        {
+          "label": "4",
+          "content": "203.1.255.245"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 75,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "다음은 사용자로부터 입력받은 문자열에서 처음과 끝의 3글자를 추출한 후 합쳐서 출력하는 파이썬 코드에서 ㉮에 들어갈 내용은?\\n\\nString = input(\\\"7문자 이상 문자열을 입력하시오 :\\\")\\nm = ( ㉮ )\\nprint(m)\\n\\n입력값 : Hello World\\n최종 출력 : Helrld",
+      "choices": [
+        {
+          "label": "1",
+          "content": "string[1:3] + string[-3:]"
+        },
+        {
+          "label": "2",
+          "content": "string[:3] + string[-3:-1]"
+        },
+        {
+          "label": "3",
+          "content": "string[0:3] + string[-3:]"
+        },
+        {
+          "label": "4",
+          "content": "string[0:] + string[:-1]"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 76,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "파이썬의 변수 작성 규칙 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "첫 자리에 숫자를 사용할 수 없다."
+        },
+        {
+          "label": "2",
+          "content": "영문 대문자/소문자, 숫자, 밑줄(_)의 사용이 가능하다."
+        },
+        {
+          "label": "3",
+          "content": "변수 이름의 중간에 공백을 사용할 수 있다."
+        },
+        {
+          "label": "4",
+          "content": "이미 사용되고 있는 예약어는 사용할 수 없다."
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 77,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "어떤 모듈이 다른 모듈의 내부 논리 조직을 제어하기 위한 목적으로 제어신호를 이용하여 통신하는 경우이며, 하위 모듈에서 상위 모듈로 제어신호가 이동하여 상위 모듈에게 처리 명령을 부여하는 권리 전도현상이 발생하게 되는 결합도는?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "data coupling"
+        },
+        {
+          "label": "2",
+          "content": "stamp coupling"
+        },
+        {
+          "label": "3",
+          "content": "control coupling"
+        },
+        {
+          "label": "4",
+          "content": "common coupling"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 78,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "다음 C 프로그램의 결과 값은?\\n\\nmain(void) {\\n  int i;\\n  int sum = 0;\\n  for(i =1; i<=10; i=i+2)\\n    sum = sum + i;\\n  printf(\\\"%d\\\", sum);\\n}",
+      "choices": [
+        {
+          "label": "1",
+          "content": "15"
+        },
+        {
+          "label": "2",
+          "content": "19"
+        },
+        {
+          "label": "3",
+          "content": "25"
+        },
+        {
+          "label": "4",
+          "content": "27"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 79,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "UNIX에서 새로운 프로세스를 생성하는 명령어는?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "ls"
+        },
+        {
+          "label": "2",
+          "content": "cat"
+        },
+        {
+          "label": "3",
+          "content": "fork"
+        },
+        {
+          "label": "4",
+          "content": "chmod"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 80,
+      "subjectName": "프로그래밍 언어 활용",
+      "content": "C언어에서 정수 자료형으로 옳은 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "int"
+        },
+        {
+          "label": "2",
+          "content": "float"
+        },
+        {
+          "label": "3",
+          "content": "char"
+        },
+        {
+          "label": "4",
+          "content": "double"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 81,
+      "subjectName": "정보시스템 구축관리",
+      "content": "물리적인 사물과 컴퓨터에 동일하게 표현되는 가상의 모델로 실제 물리적인 자산 대신 소프트웨어로 가상화함으로써 실제 자산의 특성에 대한 정확한 정보를 얻을 수 있고, 자산 최적화, 돌발사고 최소화, 생산성 증가 등 설계부터 제조, 서비스에 이르는 모든 과정의 효율성을 향상시킬 수 있는 모델은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "최적화"
+        },
+        {
+          "label": "2",
+          "content": "실행 시간"
+        },
+        {
+          "label": "3",
+          "content": "디지털 트윈"
+        },
+        {
+          "label": "4",
+          "content": "N-Screen"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 82,
+      "subjectName": "정보시스템 구축관리",
+      "content": "정보보안의 3대 요소에 해당하지 않는 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "기밀성"
+        },
+        {
+          "label": "2",
+          "content": "휘발성"
+        },
+        {
+          "label": "3",
+          "content": "무결성"
+        },
+        {
+          "label": "4",
+          "content": "가용성"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 83,
+      "subjectName": "정보시스템 구축관리",
+      "content": "다음 빈칸에 알맞은 기술은\\n\\n(  )은/는 웹에서 제공하는 정보 및 서비스를 이용하여 새로운 소프트웨어나 서비스, 데이터베이스 등을 만드는 기술이다.",
+      "choices": [
+        {
+          "label": "1",
+          "content": "Quantum Key Distribution"
+        },
+        {
+          "label": "2",
+          "content": "Digital Rights Management"
+        },
+        {
+          "label": "3",
+          "content": "Grayware"
+        },
+        {
+          "label": "4",
+          "content": "Mashup"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 84,
+      "subjectName": "정보시스템 구축관리",
+      "content": "기능점수(Functional Point)모형에서 비용산정에 이용되는 요소가 아닌 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "클래스 인터페이스"
+        },
+        {
+          "label": "2",
+          "content": "명령어(사용자 질의수)"
+        },
+        {
+          "label": "3",
+          "content": "데이터파일"
+        },
+        {
+          "label": "4",
+          "content": "출력보고서"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 85,
+      "subjectName": "정보시스템 구축관리",
+      "content": "블록 암호화 방식이 아닌 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "DES"
+        },
+        {
+          "label": "2",
+          "content": "RC4"
+        },
+        {
+          "label": "3",
+          "content": "AES"
+        },
+        {
+          "label": "4",
+          "content": "SEED"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 86,
+      "subjectName": "정보시스템 구축관리",
+      "content": "Putnam 모형을 기초로 해서 만든 자동화 추정 도구는?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "SQLR/30"
+        },
+        {
+          "label": "2",
+          "content": "SLIM"
+        },
+        {
+          "label": "3",
+          "content": "MESH"
+        },
+        {
+          "label": "4",
+          "content": "NFV"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 87,
+      "subjectName": "정보시스템 구축관리",
+      "content": "큰 숫자를 소인수 분해하기 어렵다는 기반 하에 1978년 MIT에 의해 제안된 공개키 암호화 알고리즘은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "DES"
+        },
+        {
+          "label": "2",
+          "content": "ARIA"
+        },
+        {
+          "label": "3",
+          "content": "SEED"
+        },
+        {
+          "label": "4",
+          "content": "RSA"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 88,
+      "subjectName": "정보시스템 구축관리",
+      "content": "COCOMO 모델의 프로젝트 유형으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "Organic"
+        },
+        {
+          "label": "2",
+          "content": "Semi-detached"
+        },
+        {
+          "label": "3",
+          "content": "Embedded"
+        },
+        {
+          "label": "4",
+          "content": "Sequential"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 89,
+      "subjectName": "정보시스템 구축관리",
+      "content": "빅데이터 분석 기술 중 대량의 데이터를 분석하여 데이터 속에 내재되어 있는 변수 사이의 상호관계를 규명하여 일정한 패턴을 찾아내는 기법은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "Data Mining"
+        },
+        {
+          "label": "2",
+          "content": "Wm-Bus"
+        },
+        {
+          "label": "3",
+          "content": "Digital Twin"
+        },
+        {
+          "label": "4",
+          "content": "Zigbee"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 90,
+      "subjectName": "정보시스템 구축관리",
+      "content": "기존 무선 랜의 한계 극복을 위해 등장하였으며, 대규모 디바이스의 네트워크 생성에 최적화되어 차세대 이동통신, 홈 네트워킹, 공공 안전 등의 특수목적을 위한 새로운 방식의 네트워크 기술을 의미하는 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "Software Defined Perimeter"
+        },
+        {
+          "label": "2",
+          "content": "Virtual Private Network"
+        },
+        {
+          "label": "3",
+          "content": "Local Area Network"
+        },
+        {
+          "label": "4",
+          "content": "Mesh Network"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 91,
+      "subjectName": "정보시스템 구축관리",
+      "content": "DDoS 공격과 연관이 있는 공격 방법은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "Secure shell"
+        },
+        {
+          "label": "2",
+          "content": "Tribe Flood Network"
+        },
+        {
+          "label": "3",
+          "content": "Nimda"
+        },
+        {
+          "label": "4",
+          "content": "Deadlock"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 92,
+      "subjectName": "정보시스템 구축관리",
+      "content": "CPM 네트워크가 다음과 같을 때 임계경로의 소요일은?\\n\\n(시작에서 완료까지 각 작업 노드별 소요일수가 표시된 네트워크 단계를 따름:\\n경로 1: 3일 - 5일 - 4일\\n경로 2: 2일 - 2일 - 3일 - 3일\\n경로 3: 2일 - 3일 - 5일 - 4일)",
+      "choices": [
+        {
+          "label": "1",
+          "content": "10일"
+        },
+        {
+          "label": "2",
+          "content": "12일"
+        },
+        {
+          "label": "3",
+          "content": "14일"
+        },
+        {
+          "label": "4",
+          "content": "16일"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 93,
+      "subjectName": "정보시스템 구축관리",
+      "content": "RIP(Routing Information Protocol)에 대한 설명으로 틀린 것은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "거리 벡터 라우팅 프로토콜이라고도 한다."
+        },
+        {
+          "label": "2",
+          "content": "소규모 네트워크 환경에 적합하다."
+        },
+        {
+          "label": "3",
+          "content": "최대 홉 카운트를 115홉 이하로 한정하고 있다."
+        },
+        {
+          "label": "4",
+          "content": "최단경로탐색에는 Bellman-Ford 알고리즘을 사용한다."
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 94,
+      "subjectName": "정보시스템 구축관리",
+      "content": "소프트웨어 생명주기 모형 중 고전적 생명주기 모형으로 선형 순차적 모델이라고도 하며, 타당성 검토, 계획, 요구사항 분석, 구현, 테스트, 유지보수의 단계를 통해 소프트웨어를 개발하는 모형은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "폭포수 모형"
+        },
+        {
+          "label": "2",
+          "content": "애자일 모형"
+        },
+        {
+          "label": "3",
+          "content": "컴포넌트 기반 방법론"
+        },
+        {
+          "label": "4",
+          "content": "6GT 모형"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 95,
+      "subjectName": "정보시스템 구축관리",
+      "content": "소프트웨어 개발 모델 중 나선형 모델의 4가지 주요 활동이 순서대로 나열된 것은?\n\n[활동]\nⒶ 계획 수립, Ⓑ 고객 평가\nⒸ 개발 및 검증, Ⓓ 위험 분석",
+      "choices": [
+        {
+          "label": "1",
+          "content": "Ⓐ-Ⓑ-Ⓓ-Ⓒ 순으로 반복"
+        },
+        {
+          "label": "2",
+          "content": "Ⓐ-Ⓓ-Ⓒ-Ⓑ 순으로 반복"
+        },
+        {
+          "label": "3",
+          "content": "Ⓐ-Ⓑ-Ⓒ-Ⓓ 순으로 반복"
+        },
+        {
+          "label": "4",
+          "content": "Ⓐ-Ⓒ-Ⓑ-Ⓓ 순으로 반복"
+        }
+      ],
+      "correctLabel": "2"
+    },
+    {
+      "questionNumber": 96,
+      "subjectName": "정보시스템 구축관리",
+      "content": "전자 칩과 같은 소프트웨어 부품, 즉 블록(모듈)을 만들어서 끼워 맞추는 방법으로 소프트웨어를 완성시키는 재사용 방법은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "합성 중심"
+        },
+        {
+          "label": "2",
+          "content": "생성 중심"
+        },
+        {
+          "label": "3",
+          "content": "분리 중심"
+        },
+        {
+          "label": "4",
+          "content": "구조 중심"
+        }
+      ],
+      "correctLabel": "1"
+    },
+    {
+      "questionNumber": 97,
+      "subjectName": "정보시스템 구축관리",
+      "content": "다음 JAVA코드에서 밑줄로 표시된 부분에는 어떤 보안 약점이 존재하는가? (단, key는 암호화 키를 저장하는 변수이다.)\n\nimport javax.crypto.KeyGenerator;\nimport javax.crypto.spec.SecretKeySpec;\nimport javax.crypto.Cipher;\n......생략\npublic String encriptString(String usr) {\n  String key = \"22df3023sf~2:asn!@#/>as\"; // (밑줄 표시된 부분)\n  if (key != null) {\n    byte[] bToEncrypt = usr.getBytes(\"UTF-8\");\n    .....생략",
+      "choices": [
+        {
+          "label": "1",
+          "content": "무결성 검사 없는 코드 다운로드"
+        },
+        {
+          "label": "2",
+          "content": "중요 자원에 대한 잘못된 권한 설정"
+        },
+        {
+          "label": "3",
+          "content": "하드코드된 암호화 키 사용"
+        },
+        {
+          "label": "4",
+          "content": "적절한 인증없는 중요 기능 허용"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 98,
+      "subjectName": "정보시스템 구축관리",
+      "content": "소프트웨어 개발 표준 중 소프트웨어 품질 및 생산성 향상을 위해 소프트웨어 프로세스를 평가 및 개선하는 국제 표준은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "SCRUM"
+        },
+        {
+          "label": "2",
+          "content": "ISO/IEC 12509"
+        },
+        {
+          "label": "3",
+          "content": "SPICE"
+        },
+        {
+          "label": "4",
+          "content": "CASE"
+        }
+      ],
+      "correctLabel": "3"
+    },
+    {
+      "questionNumber": 99,
+      "subjectName": "정보시스템 구축관리",
+      "content": "실무적으로 검증된 개발보안 방법론 중 하나로써 SW보안의 모범 사례를 SDLC(Software Development Life Cycle)에 통합한 소프트웨어 개발 보안 생명주기 방법론은?",
+      "choices": [
+        {
+          "label": "1",
+          "content": "CLASP"
+        },
+        {
+          "label": "2",
+          "content": "CWE"
+        },
+        {
+          "label": "3",
+          "content": "PIMS"
+        },
+        {
+          "label": "4",
+          "content": "Seven Touchpoints"
+        }
+      ],
+      "correctLabel": "4"
+    },
+    {
+      "questionNumber": 100,
+      "subjectName": "정보시스템 구축관리",
+      "content": "다음 LAN의 네트워크 토폴로지는?\n\n[데이터 전송 방향]\n(하나의 중앙 통신 회선에 스테이션 1, 2, 3, 4, 5가 일렬로 연결된 형태)",
+      "choices": [
+        {
+          "label": "1",
+          "content": "버스형"
+        },
+        {
+          "label": "2",
+          "content": "성형"
+        },
+        {
+          "label": "3",
+          "content": "링형"
+        },
+        {
+          "label": "4",
+          "content": "그물형"
+        }
+      ],
+      "correctLabel": "1"
+    }
+  ]
+}
