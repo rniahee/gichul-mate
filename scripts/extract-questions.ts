@@ -6,11 +6,20 @@ import { renderPdfToImages } from "./lib/pdf-to-images";
 import type { ExtractedQuestion, ExtractionResult } from "./lib/types";
 
 const PAGES_PER_CHUNK = 5;
+// 문제 하나가 청크 경계(예: 5페이지/6페이지 사이)에서 지문과 보기로 잘려 양쪽 청크
+// 모두 "불완전한 문제"로 보고 누락시키는 경우가 있어(실제로 20200606의 26번에서
+// 발생), 청크끼리 1페이지씩 겹치게 해서 경계에 걸친 문제도 최소 한 청크에서는
+// 온전히 보이도록 한다.
+const CHUNK_OVERLAP_PAGES = 1;
 
-function chunk<T>(items: T[], size: number): T[][] {
+function chunkPagesWithOverlap<T>(items: T[], size: number, overlap: number): T[][] {
+  const step = size - overlap;
   const chunks: T[][] = [];
-  for (let i = 0; i < items.length; i += size) {
-    chunks.push(items.slice(i, i + size));
+  let start = 0;
+  while (start < items.length) {
+    chunks.push(items.slice(start, start + size));
+    if (start + size >= items.length) break;
+    start += step;
   }
   return chunks;
 }
@@ -136,7 +145,7 @@ async function main() {
   let quotaExceeded = false;
 
   try {
-    const pageChunks = chunk(pages, PAGES_PER_CHUNK);
+    const pageChunks = chunkPagesWithOverlap(pages, PAGES_PER_CHUNK, CHUNK_OVERLAP_PAGES);
     console.log(`[2/4] Gemini로 추출 중 (${pageChunks.length}개 청크, 청크당 ${PAGES_PER_CHUNK}페이지)`);
 
     for (let i = 0; i < pageChunks.length; i++) {
