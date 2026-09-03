@@ -785,14 +785,14 @@
         },
         {
           "label": "3",
-          "content": "(다) - ㉢, (라) - ㉣"
+          "content": "(다) - ㉢, (라) - ㉤"
         },
         {
           "label": "4",
           "content": "(라) - ㉣, (마) - ㉢"
         }
       ],
-      "correctLabel": "3"
+      "correctLabel": "2"
     },
     {
       "questionNumber": 34,
