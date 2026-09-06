@@ -7,6 +7,7 @@ export default defineConfig({
   schema: "prisma/schema.prisma",
   migrations: {
     path: "prisma/migrations",
+    seed: "tsx prisma/seed.ts",
   },
   datasource: {
     // CLI/마이그레이션 전용 (direct 연결). Prisma 7의 datasource 설정 타입에는
