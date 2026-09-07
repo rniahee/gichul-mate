@@ -69,3 +69,13 @@ PostgreSQL + Prisma, Gemini API, Recharts, Vitest.
     의미 있는 하위 단위(예: API 구현 / 화면 구현)로 나눠 여러 커밋으로 제안해도 된다.
 - 커밋 메시지를 제안할 때는 `git status`/`git diff` 요약도 함께 보여줘서, 무엇이
   커밋되는지 사용자가 확인하고 승인할 수 있게 한다.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
