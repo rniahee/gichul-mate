@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import type { QuestionDetail, SubmitRequest, SubmitResponse } from "@/types/question";
 
@@ -43,11 +43,23 @@ export function QuestionView({ questionId }: QuestionViewProps) {
 
   const result = submitMutation.data;
 
-  // 숫자키 1~4로 보기 선택 (제출 전에만 동작 — 결과가 확정되면 비활성화)
+  const handleSubmit = useCallback(() => {
+    if (!selectedChoiceId) return;
+    submitMutation.mutate(selectedChoiceId);
+  }, [selectedChoiceId, submitMutation]);
+
+  // 숫자키 1~4로 보기 선택, Enter로 제출 (제출 전에만 동작 — 결과가 확정되면
+  // 비활성화). 버튼의 네이티브 Enter 동작에 기대지 않고 명시적으로 처리한다:
+  // 보기 버튼에 포커스가 있으면 Enter가 그 버튼만 재클릭하고, 숫자키로 선택한
+  // 직후에는 포커스가 어디에도 없어서 애초에 네이티브 제출이 일어나지 않는다.
   useEffect(() => {
     if (!question || result) return;
 
     function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Enter") {
+        handleSubmit();
+        return;
+      }
       const choice = question?.choices.find((c) => c.label === e.key);
       if (choice) {
         setSelectedChoiceId(choice.id);
@@ -56,7 +68,7 @@ export function QuestionView({ questionId }: QuestionViewProps) {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [question, result]);
+  }, [question, result, handleSubmit]);
 
   if (isLoading) {
     return <p>불러오는 중입니다...</p>;
@@ -72,11 +84,6 @@ export function QuestionView({ questionId }: QuestionViewProps) {
       </div>
     );
   }
-
-  const handleSubmit = () => {
-    if (!selectedChoiceId) return;
-    submitMutation.mutate(selectedChoiceId);
-  };
 
   return (
     <div>
