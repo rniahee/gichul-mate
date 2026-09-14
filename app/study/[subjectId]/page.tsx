@@ -1,8 +1,7 @@
-export default function StudyPage() {
-  return (
-    <div>
-      <h1>단원별 학습</h1>
-      <p>준비 중입니다.</p>
-    </div>
-  );
+import { StudySession } from "@/components/StudySession";
+
+export default async function StudyPage({ params }: { params: Promise<{ subjectId: string }> }) {
+  const { subjectId } = await params;
+
+  return <StudySession subjectId={subjectId} />;
 }

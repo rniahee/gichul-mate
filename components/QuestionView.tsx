@@ -6,6 +6,9 @@ import type { QuestionDetail, SubmitRequest, SubmitResponse } from "@/types/ques
 
 interface QuestionViewProps {
   questionId: string;
+  // 학습 모드(StudySession)에서 진행률/정답 수를 집계하는 데 쓰는 선택적 콜백.
+  // /questions/[id] 단독 사용처는 넘기지 않아도 된다.
+  onAnswered?: (isCorrect: boolean) => void;
 }
 
 async function fetchQuestion(questionId: string): Promise<QuestionDetail> {
@@ -24,7 +27,7 @@ async function submitAnswer(questionId: string, body: SubmitRequest): Promise<Su
   return res.json();
 }
 
-export function QuestionView({ questionId }: QuestionViewProps) {
+export function QuestionView({ questionId, onAnswered }: QuestionViewProps) {
   const [selectedChoiceId, setSelectedChoiceId] = useState<string | null>(null);
 
   const {
@@ -39,6 +42,12 @@ export function QuestionView({ questionId }: QuestionViewProps) {
 
   const submitMutation = useMutation({
     mutationFn: (choiceId: string) => submitAnswer(questionId, { selectedChoiceId: choiceId }),
+    // onSuccess는 렌더마다 useMutation 내부에서 최신 옵션으로 재동기화되므로
+    // (observer.setOptions), onAnswered를 useCallback 의존성에 신경 쓸 필요 없이
+    // 항상 최신 콜백을 참조한다.
+    onSuccess: (data) => {
+      onAnswered?.(data.isCorrect);
+    },
   });
 
   const result = submitMutation.data;
