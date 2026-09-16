@@ -54,12 +54,16 @@ export function FilterBar({
     }
   }, [debouncedKeyword, keyword, onKeywordChange]);
 
+  const fieldClassName =
+    "rounded border border-rule bg-paper px-3 py-1.5 text-sm text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus";
+
   return (
     <div className="flex flex-wrap gap-3">
       <select
         value={subjectId ?? ""}
         onChange={(e) => onSubjectChange(e.target.value || null)}
         aria-label="과목 필터"
+        className={fieldClassName}
       >
         <option value="">전체 과목</option>
         {subjects?.map((s) => (
@@ -73,6 +77,7 @@ export function FilterBar({
         value={year ?? ""}
         onChange={(e) => onYearChange(e.target.value ? Number(e.target.value) : null)}
         aria-label="연도 필터"
+        className={fieldClassName}
       >
         <option value="">전체 연도</option>
         {years?.map((y) => (
@@ -88,6 +93,7 @@ export function FilterBar({
         onChange={(e) => setKeywordInput(e.target.value)}
         placeholder="키워드 검색"
         aria-label="키워드 검색"
+        className={fieldClassName + " flex-1 min-w-40"}
       />
     </div>
   );

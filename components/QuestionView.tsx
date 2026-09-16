@@ -80,14 +80,18 @@ export function QuestionView({ questionId, onAnswered }: QuestionViewProps) {
   }, [question, result, handleSubmit]);
 
   if (isLoading) {
-    return <p>불러오는 중입니다...</p>;
+    return <p className="text-ink/60">불러오는 중입니다...</p>;
   }
 
   if (isQuestionError || !question) {
     return (
-      <div>
-        <p>문제를 불러오지 못했습니다.</p>
-        <button type="button" onClick={() => refetchQuestion()}>
+      <div className="space-y-3">
+        <p className="text-incorrect">문제를 불러오지 못했습니다.</p>
+        <button
+          type="button"
+          onClick={() => refetchQuestion()}
+          className="font-semibold text-focus underline underline-offset-2"
+        >
           다시 시도
         </button>
       </div>
@@ -96,13 +100,13 @@ export function QuestionView({ questionId, onAnswered }: QuestionViewProps) {
 
   return (
     <div>
-      <p className="text-sm text-gray-500">
-        {question.subjectName} {question.year}
+      <p className="font-mono text-sm text-ink/60">
+        {question.subjectName} · {question.year}
         {question.round ? `-${question.round}회` : ""}
       </p>
-      <p className="whitespace-pre-wrap">{question.content}</p>
+      <p className="mt-3 whitespace-pre-wrap text-lg leading-relaxed">{question.content}</p>
 
-      <ul>
+      <ul className="mt-6 border-t border-rule">
         {question.choices.map((choice) => {
           const isSelected = choice.id === selectedChoiceId;
           const isCorrectChoice = Boolean(result) && choice.id === result?.correctChoiceId;
@@ -115,11 +119,27 @@ export function QuestionView({ questionId, onAnswered }: QuestionViewProps) {
                 disabled={Boolean(result)}
                 aria-pressed={isSelected}
                 onClick={() => setSelectedChoiceId(choice.id)}
-                className={
-                  isCorrectChoice ? "bg-green-100" : isWrongPick ? "bg-red-100" : isSelected ? "bg-blue-100" : ""
-                }
+                className="flex w-full items-center gap-3 border-b border-rule px-2 py-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:cursor-default"
               >
-                {choice.label}. {choice.content}
+                {/* 선택 여부는 채워진/빈 원(OMR 마킹)으로 표시 — 색만이 아니라
+                    정답/오답도 ✓/✗ 기호를 같이 넣어서 색각 이상 사용자도 구분 가능 */}
+                <span
+                  aria-hidden="true"
+                  className={
+                    "flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 text-xs font-semibold " +
+                    (isCorrectChoice
+                      ? "border-correct bg-correct text-paper"
+                      : isWrongPick
+                        ? "border-incorrect bg-incorrect text-paper"
+                        : isSelected
+                          ? "border-focus bg-focus"
+                          : "border-rule")
+                  }
+                >
+                  {isCorrectChoice ? "✓" : isWrongPick ? "✗" : ""}
+                </span>
+                <span className="font-mono text-sm text-ink/60">{choice.label}</span>
+                <span className="flex-1">{choice.content}</span>
               </button>
             </li>
           );
@@ -127,24 +147,39 @@ export function QuestionView({ questionId, onAnswered }: QuestionViewProps) {
       </ul>
 
       {!result && (
-        <button type="button" disabled={!selectedChoiceId || submitMutation.isPending} onClick={handleSubmit}>
-          {submitMutation.isPending ? "제출 중..." : "제출"}
-        </button>
+        <div className="mt-6 flex items-center gap-3">
+          <button
+            type="button"
+            disabled={!selectedChoiceId || submitMutation.isPending}
+            onClick={handleSubmit}
+            className="rounded-md bg-focus px-5 py-2 font-semibold text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:opacity-40"
+          >
+            {submitMutation.isPending ? "제출 중..." : "제출"}
+          </button>
+          <span className="text-sm text-ink/50">Enter로도 제출할 수 있어요</span>
+        </div>
       )}
 
       {submitMutation.isError && (
-        <div>
-          <p>제출에 실패했습니다. 다시 시도해주세요.</p>
-          <button type="button" disabled={submitMutation.isPending} onClick={handleSubmit}>
+        <div className="mt-4 space-y-2 border border-incorrect/40 px-4 py-3 text-sm">
+          <p className="text-incorrect">제출에 실패했습니다. 다시 시도해주세요.</p>
+          <button
+            type="button"
+            disabled={submitMutation.isPending}
+            onClick={handleSubmit}
+            className="font-semibold text-focus underline underline-offset-2"
+          >
             다시 시도
           </button>
         </div>
       )}
 
       {result && (
-        <div>
-          <p>{result.isCorrect ? "정답입니다!" : "오답입니다."}</p>
-          <p>{result.explanation ? result.explanation : "해설 준비 중입니다."}</p>
+        <div className="mt-6 border-t border-rule pt-6">
+          <p className={"text-lg font-semibold " + (result.isCorrect ? "text-correct" : "text-incorrect")}>
+            {result.isCorrect ? "정답입니다" : "오답입니다"}
+          </p>
+          <p className="mt-2 text-ink/70">{result.explanation ? result.explanation : "해설 준비 중입니다."}</p>
         </div>
       )}
     </div>

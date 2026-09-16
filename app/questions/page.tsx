@@ -18,7 +18,7 @@ async function fetchQuestions(params: URLSearchParams): Promise<QuestionListResp
 
 export default function QuestionsPage() {
   return (
-    <Suspense fallback={<p className="p-6">불러오는 중입니다...</p>}>
+    <Suspense fallback={<p className="mx-auto max-w-4xl px-4 py-8 text-ink/60">불러오는 중입니다...</p>}>
       <QuestionsPageContent />
     </Suspense>
   );
@@ -83,51 +83,60 @@ function QuestionsPageContent() {
   });
 
   return (
-    <div className="p-6">
-      <h1>문제 은행</h1>
+    <div className="mx-auto max-w-4xl px-4 py-8">
+      <h1 className="text-xl font-semibold">문제 은행</h1>
 
-      <FilterBar
-        subjectId={subjectId}
-        year={year}
-        keyword={keyword}
-        onSubjectChange={handleSubjectChange}
-        onYearChange={handleYearChange}
-        onKeywordChange={handleKeywordChange}
-      />
+      <div className="mt-4">
+        <FilterBar
+          subjectId={subjectId}
+          year={year}
+          keyword={keyword}
+          onSubjectChange={handleSubjectChange}
+          onYearChange={handleYearChange}
+          onKeywordChange={handleKeywordChange}
+        />
+      </div>
 
-      {isLoading && <p>불러오는 중입니다...</p>}
+      {isLoading && <p className="mt-8 text-ink/60">불러오는 중입니다...</p>}
 
       {isError && (
-        <div>
-          <p>문제를 불러오지 못했습니다.</p>
-          <button type="button" onClick={() => refetch()}>
+        <div className="mt-8 space-y-2">
+          <p className="text-incorrect">문제를 불러오지 못했습니다.</p>
+          <button
+            type="button"
+            onClick={() => refetch()}
+            className="font-semibold text-focus underline underline-offset-2"
+          >
             다시 시도
           </button>
         </div>
       )}
 
-      {!isLoading && !isError && data?.total === 0 && <p>조건에 맞는 문제가 없습니다.</p>}
+      {!isLoading && !isError && data?.total === 0 && (
+        <p className="mt-8 text-ink/60">조건에 맞는 문제가 없습니다.</p>
+      )}
 
       {data && data.total > 0 && (
-        <ul>
+        <ul className="mt-6 border-t border-rule">
           {data.items.map((q) => (
-            <li key={q.id}>
-              <Link href={`/questions/${q.id}`}>
-                [{q.subjectName}] {q.content}
+            <li key={q.id} className="border-b border-rule">
+              <Link
+                href={`/questions/${q.id}`}
+                className="flex items-center gap-4 border-l-2 border-l-transparent px-3 py-3 hover:border-l-focus hover:bg-ink/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-inset"
+              >
+                <span className="w-16 shrink-0 font-mono text-xs text-ink/50">
+                  {q.year}
+                  {q.round ? `-${q.round}` : ""}
+                </span>
+                <span className="w-28 shrink-0 truncate text-xs text-ink/60">{q.subjectName}</span>
+                <span className="flex-1 truncate">{q.content}</span>
               </Link>
-              <span>
-                {" "}
-                {q.year}
-                {q.round ? `-${q.round}회` : ""}
-              </span>
             </li>
           ))}
         </ul>
       )}
 
-      {data && (
-        <Pagination page={page} pageSize={PAGE_SIZE} total={data.total} onPageChange={handlePageChange} />
-      )}
+      {data && <Pagination page={page} pageSize={PAGE_SIZE} total={data.total} onPageChange={handlePageChange} />}
     </div>
   );
 }

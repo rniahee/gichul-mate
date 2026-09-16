@@ -8,10 +8,10 @@ export function ProgressBar({ current, total }: ProgressBarProps) {
 
   return (
     <div>
-      <div className="h-2 w-full rounded bg-gray-200">
-        <div className="h-2 rounded bg-blue-500" style={{ width: `${percent}%` }} />
+      <div className="h-1.5 w-full bg-rule">
+        <div className="h-1.5 bg-focus" style={{ width: `${percent}%` }} />
       </div>
-      <p className="text-sm text-gray-500">
+      <p className="mt-1 font-mono text-sm text-ink/60">
         {current} / {total}
       </p>
     </div>

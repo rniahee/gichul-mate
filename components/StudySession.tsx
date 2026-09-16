@@ -38,14 +38,18 @@ export function StudySession({ subjectId }: StudySessionProps) {
   const [totalAnswered, setTotalAnswered] = useState(0);
 
   if (isLoading) {
-    return <p>불러오는 중입니다...</p>;
+    return <p className="mx-auto max-w-2xl px-4 py-8 text-ink/60">불러오는 중입니다...</p>;
   }
 
   if (isError || !questionIds) {
     return (
-      <div>
-        <p>문제 목록을 불러오지 못했습니다.</p>
-        <button type="button" onClick={() => refetch()}>
+      <div className="mx-auto max-w-2xl space-y-3 px-4 py-8">
+        <p className="text-incorrect">문제 목록을 불러오지 못했습니다.</p>
+        <button
+          type="button"
+          onClick={() => refetch()}
+          className="font-semibold text-focus underline underline-offset-2"
+        >
           다시 시도
         </button>
       </div>
@@ -53,7 +57,7 @@ export function StudySession({ subjectId }: StudySessionProps) {
   }
 
   if (questionIds.length === 0) {
-    return <p>이 과목에는 아직 문제가 없습니다.</p>;
+    return <p className="mx-auto max-w-2xl px-4 py-8 text-ink/60">이 과목에는 아직 문제가 없습니다.</p>;
   }
 
   const handleAnswered = (isCorrect: boolean) => {
@@ -79,15 +83,23 @@ export function StudySession({ subjectId }: StudySessionProps) {
   if (isFinished) {
     const percent = totalAnswered > 0 ? Math.round((correctCount / totalAnswered) * 100) : 0;
     return (
-      <div>
-        <h2>학습을 완료했습니다!</h2>
-        <p>
+      <div className="mx-auto max-w-2xl px-4 py-8">
+        <h2 className="text-lg font-semibold">학습을 완료했습니다</h2>
+        <p className="mt-2 text-ink/70">
           {totalAnswered}문제 중 {correctCount}개 정답 ({percent}%)
         </p>
-        <Link href="/questions">문제 은행으로</Link>
-        <button type="button" onClick={handleRestart}>
-          처음부터 다시 풀기
-        </button>
+        <div className="mt-6 flex items-center gap-4">
+          <Link href="/questions" className="font-semibold text-focus underline underline-offset-2">
+            문제 은행으로
+          </Link>
+          <button
+            type="button"
+            onClick={handleRestart}
+            className="rounded border border-rule px-4 py-2 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
+          >
+            처음부터 다시 풀기
+          </button>
+        </div>
       </div>
     );
   }
@@ -95,15 +107,23 @@ export function StudySession({ subjectId }: StudySessionProps) {
   const currentQuestionId = questionIds[currentIndex];
 
   return (
-    <div>
+    <div className="mx-auto max-w-2xl px-4 py-8">
       <ProgressBar current={currentIndex + 1} total={questionIds.length} />
 
-      <QuestionView key={currentQuestionId} questionId={currentQuestionId} onAnswered={handleAnswered} />
+      <div className="mt-6">
+        <QuestionView key={currentQuestionId} questionId={currentQuestionId} onAnswered={handleAnswered} />
+      </div>
 
       {isCurrentAnswered && (
-        <button type="button" onClick={handleNext}>
-          다음 문제
-        </button>
+        <div className="mt-6">
+          <button
+            type="button"
+            onClick={handleNext}
+            className="rounded-md bg-focus px-5 py-2 font-semibold text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+          >
+            다음 문제
+          </button>
+        </div>
       )}
     </div>
   );
