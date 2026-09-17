@@ -119,7 +119,7 @@ export function StudySession({ subjectId }: StudySessionProps) {
           <button
             type="button"
             onClick={handleNext}
-            className="rounded-md bg-focus px-5 py-2 font-semibold text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            className="w-full rounded-md bg-focus px-5 py-2 font-semibold text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-paper sm:w-auto"
           >
             다음 문제
           </button>

@@ -139,7 +139,7 @@ export function QuestionView({ questionId, onAnswered }: QuestionViewProps) {
                   {isCorrectChoice ? "✓" : isWrongPick ? "✗" : ""}
                 </span>
                 <span className="font-mono text-sm text-ink/60">{choice.label}</span>
-                <span className="flex-1">{choice.content}</span>
+                <span className="min-w-0 flex-1 break-words">{choice.content}</span>
               </button>
             </li>
           );
@@ -147,12 +147,12 @@ export function QuestionView({ questionId, onAnswered }: QuestionViewProps) {
       </ul>
 
       {!result && (
-        <div className="mt-6 flex items-center gap-3">
+        <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
           <button
             type="button"
             disabled={!selectedChoiceId || submitMutation.isPending}
             onClick={handleSubmit}
-            className="rounded-md bg-focus px-5 py-2 font-semibold text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:opacity-40"
+            className="w-full rounded-md bg-focus px-5 py-2 font-semibold text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:opacity-40 sm:w-auto"
           >
             {submitMutation.isPending ? "제출 중..." : "제출"}
           </button>

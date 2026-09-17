@@ -122,14 +122,17 @@ function QuestionsPageContent() {
             <li key={q.id} className="border-b border-rule">
               <Link
                 href={`/questions/${q.id}`}
-                className="flex items-center gap-4 border-l-2 border-l-transparent px-3 py-3 hover:border-l-focus hover:bg-ink/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-inset"
+                className="flex flex-col gap-1 border-l-2 border-l-transparent px-3 py-3 hover:border-l-focus hover:bg-ink/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-inset sm:flex-row sm:items-center sm:gap-4"
               >
-                <span className="w-16 shrink-0 font-mono text-xs text-ink/50">
+                <span className="font-mono text-xs text-ink/50 sm:w-16 sm:shrink-0">
                   {q.year}
                   {q.round ? `-${q.round}` : ""}
+                  <span className="ml-2 font-sans text-ink/60 sm:hidden">{q.subjectName}</span>
                 </span>
-                <span className="w-28 shrink-0 truncate text-xs text-ink/60">{q.subjectName}</span>
-                <span className="flex-1 truncate">{q.content}</span>
+                <span className="hidden text-xs text-ink/60 sm:block sm:w-28 sm:shrink-0 sm:truncate">
+                  {q.subjectName}
+                </span>
+                <span className="line-clamp-2 sm:line-clamp-1 sm:flex-1 sm:truncate">{q.content}</span>
               </Link>
             </li>
           ))}
