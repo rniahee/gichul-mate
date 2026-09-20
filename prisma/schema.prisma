@@ -107,6 +107,8 @@ model ExamSession {
   userId       String?
   examType     ExamType  @default(WRITTEN)
   mode         String    // "FULL_100" | "SUBJECT_20" 등
+  subjectId    String?   // SUBJECT_20일 때만 값이 있음. FULL_100은 항상 null
+  questionIds  String[]  // 시작 시점에 확정한 문제 id 목록(순서 보장) — 재조회 시 재랜덤 방지
   startedAt    DateTime  @default(now())
   finishedAt   DateTime?
   totalScore   Float?
