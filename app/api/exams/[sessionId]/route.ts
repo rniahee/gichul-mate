@@ -46,6 +46,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ ses
     startedAt: session.startedAt.toISOString(),
     durationSeconds,
     finishedAt: session.finishedAt ? session.finishedAt.toISOString() : null,
+    serverNow: new Date().toISOString(),
     questions: orderedQuestions,
   };
 
