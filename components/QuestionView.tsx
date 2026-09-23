@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { OmrMarker, type OmrMarkerState } from "@/components/OmrMarker";
 import type { QuestionDetail, SubmitRequest, SubmitResponse } from "@/types/question";
 
 interface QuestionViewProps {
@@ -111,6 +112,13 @@ export function QuestionView({ questionId, onAnswered }: QuestionViewProps) {
           const isSelected = choice.id === selectedChoiceId;
           const isCorrectChoice = Boolean(result) && choice.id === result?.correctChoiceId;
           const isWrongPick = Boolean(result) && isSelected && !isCorrectChoice;
+          const markerState: OmrMarkerState = isCorrectChoice
+            ? "correct"
+            : isWrongPick
+              ? "incorrect"
+              : isSelected
+                ? "selected"
+                : "empty";
 
           return (
             <li key={choice.id}>
@@ -121,23 +129,7 @@ export function QuestionView({ questionId, onAnswered }: QuestionViewProps) {
                 onClick={() => setSelectedChoiceId(choice.id)}
                 className="flex w-full items-center gap-3 border-b border-rule px-2 py-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:cursor-default"
               >
-                {/* 선택 여부는 채워진/빈 원(OMR 마킹)으로 표시 — 색만이 아니라
-                    정답/오답도 ✓/✗ 기호를 같이 넣어서 색각 이상 사용자도 구분 가능 */}
-                <span
-                  aria-hidden="true"
-                  className={
-                    "flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 text-xs font-semibold " +
-                    (isCorrectChoice
-                      ? "border-correct bg-correct text-paper"
-                      : isWrongPick
-                        ? "border-incorrect bg-incorrect text-paper"
-                        : isSelected
-                          ? "border-focus bg-focus"
-                          : "border-rule")
-                  }
-                >
-                  {isCorrectChoice ? "✓" : isWrongPick ? "✗" : ""}
-                </span>
+                <OmrMarker state={markerState} />
                 <span className="font-mono text-sm text-ink/60">{choice.label}</span>
                 <span className="min-w-0 flex-1 break-words">{choice.content}</span>
               </button>
