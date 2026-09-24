@@ -1,8 +1,7 @@
-export default function ExamSessionPage() {
-  return (
-    <div>
-      <h1>시험 진행</h1>
-      <p>준비 중입니다.</p>
-    </div>
-  );
+import { ExamSession } from "@/components/exam/ExamSession";
+
+export default async function ExamSessionPage({ params }: { params: Promise<{ sessionId: string }> }) {
+  const { sessionId } = await params;
+
+  return <ExamSession sessionId={sessionId} />;
 }

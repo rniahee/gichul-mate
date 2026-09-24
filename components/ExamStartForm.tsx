@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { fetchWithTimeout } from "@/lib/fetch-with-timeout";
 import type { CreateExamRequest, CreateExamResponse, ExamMode } from "@/types/exam";
 import type { SubjectDto } from "@/types/question";
 
@@ -12,28 +13,14 @@ async function fetchSubjects(): Promise<SubjectDto[]> {
   return res.json();
 }
 
-// DevTools의 오프라인 시뮬레이션은 (진짜 네트워크 단절과 달리) 요청을 즉시
-// 실패시키지 않고 응답 없이 계속 pending 상태로 둘 수 있다. 그런 경우든
-// 실제 서버 장애든, 요청이 무한정 걸려있는 상황 자체를 막기 위해 타임아웃을 둔다.
-const CREATE_EXAM_TIMEOUT_MS = 10_000;
-
 async function createExam(body: CreateExamRequest): Promise<CreateExamResponse> {
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), CREATE_EXAM_TIMEOUT_MS);
-
-  try {
-    const res = await fetch("/api/exams", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error("시험을 시작하지 못했습니다.");
-    return await res.json();
-  } finally {
-    // 정상 완료든, HTTP 에러든, abort든 항상 타이머를 정리한다.
-    clearTimeout(timeoutId);
-  }
+  const res = await fetchWithTimeout("/api/exams", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error("시험을 시작하지 못했습니다.");
+  return res.json();
 }
 
 const MODE_OPTIONS: { mode: ExamMode; title: string; description: string }[] = [
