@@ -125,6 +125,9 @@ export function QuestionView({ questionId, onAnswered }: QuestionViewProps) {
               <button
                 type="button"
                 disabled={Boolean(result)}
+                // TODO: ExamQuestionPanel처럼 role="radio"/aria-checked로 맞추기
+                // (2026-09-28 결정, 별도 정리 커밋 예정 — 4지선다 중 하나만 고르는
+                // 배타적 선택이라 aria-pressed(토글 버튼) 시맨틱보다 radiogroup이 맞음)
                 aria-pressed={isSelected}
                 onClick={() => setSelectedChoiceId(choice.id)}
                 className="flex w-full items-center gap-3 border-b border-rule px-2 py-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:cursor-default"

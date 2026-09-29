@@ -40,7 +40,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${pretendard.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Providers>{children}</Providers>
+        {/* body가 flex flex-col이라 이 래퍼가 없으면, 안쪽 페이지들의
+            mx-auto max-w-* 컨테이너가 flex item의 cross-axis auto-margin에
+            의해 stretch가 무시되고 콘텐츠 길이만큼만 폭을 차지하게 된다
+            (문제 지문 길이에 따라 화면 폭이 흔들리는 버그의 원인).
+            w-full로 폭을 콘텐츠와 무관하게 고정해서 막는다. flex-1은 지금은
+            형제 요소가 없어 효과가 없지만, 나중에 헤더/푸터가 생기면
+            sticky-footer 배치가 바로 되게 해둔다. */}
+        <div className="w-full flex-1">
+          <Providers>{children}</Providers>
+        </div>
       </body>
     </html>
   );

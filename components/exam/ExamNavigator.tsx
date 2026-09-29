@@ -50,7 +50,11 @@ export function ExamNavigator({ questions, draftAnswers, currentIndex, onSelect 
                   aria-current={isCurrent ? "true" : undefined}
                   aria-label={`${index + 1}번 문제, ${isAnswered ? "풀었음" : "안 풀음"}`}
                   className={
-                    "relative flex h-9 w-9 items-center justify-center border font-mono text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-paper " +
+                    // 버튼이 그리드 셀 폭을 그대로 채우게(w-full + aspect-square) 해서,
+                    // 칼럼 수가 반응형으로 바뀌어도 번호 사이 간격이 균등하고 마지막
+                    // 칼럼이 행의 오른쪽 끝까지 맞는다(고정 px 크기였을 때는 셀이
+                    // 넓어져도 버튼은 그대로라 왼쪽에 쏠리고 끝이 안 맞았음).
+                    "relative flex aspect-square w-full items-center justify-center border font-mono text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-paper " +
                     (isAnswered ? "border-focus" : "border-rule") +
                     (isCurrent ? " ring-2 ring-focus ring-offset-1 ring-offset-paper" : "")
                   }
