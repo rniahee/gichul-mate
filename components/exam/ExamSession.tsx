@@ -62,7 +62,7 @@ export function ExamSession({ sessionId }: ExamSessionProps) {
 
   return (
     <ExamStoreProvider key={sessionId} sessionId={sessionId}>
-      <ExamSessionBody data={data} />
+      <ExamSessionBody sessionId={sessionId} data={data} />
     </ExamStoreProvider>
   );
 }
