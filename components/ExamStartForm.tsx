@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { ResumeExamBanner } from "@/components/ResumeExamBanner";
 import { fetchWithTimeout } from "@/lib/fetch-with-timeout";
 import type { CreateExamRequest, CreateExamResponse, ExamMode } from "@/types/exam";
 import type { SubjectDto } from "@/types/question";
@@ -53,6 +54,8 @@ export function ExamStartForm() {
     <div className="mx-auto max-w-2xl px-4 py-8">
       <h1 className="text-xl font-semibold">CBT 모의고사</h1>
       <p className="mt-2 text-ink/70">시험 방식을 선택하세요.</p>
+
+      <ResumeExamBanner />
 
       {/* role="radio"를 쓰므로 부모는 radiogroup으로 감싸고, 선택 상태는
           aria-checked로 표현한다(aria-pressed는 토글 버튼 시맨틱이라 radio와 섞이면 안 됨). */}

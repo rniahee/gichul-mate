@@ -3,6 +3,7 @@ import {
   clearExamDraft,
   examStorageKey,
   getDefaultStorage,
+  listExamDraftSessions,
   pruneStaleExamDrafts,
   STALE_DRAFT_TTL_MS,
   type KeyValueStorage,
@@ -52,6 +53,61 @@ describe("clearExamDraft", () => {
       },
     };
     expect(() => clearExamDraft("a", throwing)).not.toThrow();
+  });
+});
+
+describe("listExamDraftSessions", () => {
+  it("exam-session-* 키에서 sessionId/savedAt을 추출한다", () => {
+    const storage = new MemoryStorage();
+    storage.setItem(examStorageKey("a"), draft(NOW - 1000));
+    storage.setItem(examStorageKey("b"), draft(NOW - 2000));
+
+    const result = listExamDraftSessions(storage);
+
+    expect(result).toEqual(
+      expect.arrayContaining([
+        { sessionId: "a", savedAt: NOW - 1000 },
+        { sessionId: "b", savedAt: NOW - 2000 },
+      ]),
+    );
+    expect(result).toHaveLength(2);
+  });
+
+  it("접두어가 다른 키는 후보에서 제외한다", () => {
+    const storage = new MemoryStorage();
+    storage.setItem("other-app-setting", draft(NOW));
+    storage.setItem(examStorageKey("a"), draft(NOW));
+
+    expect(listExamDraftSessions(storage)).toEqual([{ sessionId: "a", savedAt: NOW }]);
+  });
+
+  it("파싱이 안 되거나 savedAt이 없는 항목은 후보에서 제외한다", () => {
+    const storage = new MemoryStorage();
+    storage.setItem(examStorageKey("broken"), "{not json");
+    storage.setItem(examStorageKey("no-saved-at"), JSON.stringify({ state: { draftAnswers: {} }, version: 1 }));
+    storage.setItem(examStorageKey("string-saved-at"), draft("0"));
+    storage.setItem(examStorageKey("ok"), draft(NOW));
+
+    expect(listExamDraftSessions(storage)).toEqual([{ sessionId: "ok", savedAt: NOW }]);
+  });
+
+  it("저장소가 비어 있으면 빈 배열", () => {
+    expect(listExamDraftSessions(new MemoryStorage())).toEqual([]);
+  });
+
+  it("저장소가 null이면 빈 배열, 접근 중 throw해도 예외 없이 빈 배열", () => {
+    expect(listExamDraftSessions(null)).toEqual([]);
+
+    const throwing: KeyValueStorage = {
+      get length(): number {
+        throw new Error("blocked");
+      },
+      key: () => null,
+      getItem: () => null,
+      setItem: () => undefined,
+      removeItem: () => undefined,
+    };
+    expect(listExamDraftSessions(throwing)).toEqual([]);
   });
 });
 

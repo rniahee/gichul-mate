@@ -41,6 +41,34 @@ function readSavedAt(raw: string | null): number | null {
   }
 }
 
+export interface ExamDraftSummary {
+  sessionId: string;
+  savedAt: number;
+}
+
+// "이어서 풀기" 후보를 찾기 위해 exam-session-* 키들을 훑어 sessionId/savedAt
+// 쌍으로 돌려준다. 파싱이 안 되거나 savedAt이 없는 항목은 이해할 수 없는 데이터라
+// pruneStaleExamDrafts와 같은 기준으로 건너뛴다(후보로도 안 본다).
+export function listExamDraftSessions(storage: KeyValueStorage | null = getDefaultStorage()): ExamDraftSummary[] {
+  if (!storage) return [];
+
+  try {
+    const result: ExamDraftSummary[] = [];
+    for (let i = 0; i < storage.length; i++) {
+      const key = storage.key(i);
+      if (key === null || !key.startsWith(EXAM_STORAGE_PREFIX)) continue;
+
+      const savedAt = readSavedAt(storage.getItem(key));
+      if (savedAt === null) continue;
+
+      result.push({ sessionId: key.slice(EXAM_STORAGE_PREFIX.length), savedAt });
+    }
+    return result;
+  } catch {
+    return [];
+  }
+}
+
 // 제출이 끝난 세션의 임시 답안을 지운다.
 export function clearExamDraft(sessionId: string, storage: KeyValueStorage | null = getDefaultStorage()): void {
   try {
