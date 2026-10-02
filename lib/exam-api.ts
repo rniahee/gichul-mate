@@ -1,4 +1,4 @@
-import type { ExamMode, ExamSessionDetail, SubmitExamRequest } from "@/types/exam";
+import type { ExamMode, ExamResultResponse, ExamSessionDetail, SubmitExamRequest } from "@/types/exam";
 import { computeClockOffset, computeEndsAt, computeRemainingMs } from "./exam-timer";
 import { listExamDraftSessions } from "./exam-storage";
 import { fetchWithTimeout } from "./fetch-with-timeout";
@@ -6,6 +6,17 @@ import { fetchWithTimeout } from "./fetch-with-timeout";
 export async function fetchExamSession(sessionId: string): Promise<ExamSessionDetail> {
   const res = await fetchWithTimeout(`/api/exams/${sessionId}`);
   if (!res.ok) throw new Error("시험 정보를 불러오지 못했습니다.");
+  return res.json();
+}
+
+// 결과 화면이 아직 끝나지 않은 세션으로 들어온 경우 구분해서 처리하려고
+// 일반 에러와 분리된 타입으로 던진다(호출부가 instanceof로 리다이렉트 여부를 결정).
+export class ExamNotFinishedError extends Error {}
+
+export async function fetchExamResult(sessionId: string): Promise<ExamResultResponse> {
+  const res = await fetchWithTimeout(`/api/exams/${sessionId}/result`);
+  if (res.status === 400) throw new ExamNotFinishedError();
+  if (!res.ok) throw new Error("결과를 불러오지 못했습니다.");
   return res.json();
 }
 

@@ -37,3 +37,34 @@ export interface SubmitExamRequest {
 export interface SubmitExamResponse {
   sessionId: string;
 }
+
+export interface ExamResultSubjectScore {
+  subjectId: string;
+  subjectName: string;
+  score: number;
+  isPassed: boolean; // 40점 이상 여부
+}
+
+export interface ExamResultWrongAnswer {
+  questionId: string;
+  // 네비게이터와 같은 1-based 번호(questionIds 순서 기준).
+  questionNumber: number;
+  content: string;
+  subjectName: string;
+  // null이면 안 푼 문제 — 안 푼 문제도 오답으로 집계되므로(2단계-B 정책) 이 목록에 포함된다.
+  selectedChoiceLabel: string | null;
+  selectedChoiceContent: string | null;
+  correctChoiceLabel: string;
+  correctChoiceContent: string;
+}
+
+export interface ExamResultResponse {
+  sessionId: string;
+  mode: ExamMode;
+  // 이 엔드포인트는 종료된 시험만 다루므로 null일 수 없다.
+  finishedAt: string;
+  totalScore: number;
+  isPassed: boolean;
+  subjectScores: ExamResultSubjectScore[];
+  wrongAnswers: ExamResultWrongAnswer[];
+}
