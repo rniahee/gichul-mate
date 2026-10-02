@@ -4,13 +4,13 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { ExamNotFinishedError, fetchExamResult } from "@/lib/exam-api";
+import { ExamResultChart } from "./ExamResultChart";
+import { ExamWrongAnswerList } from "./ExamWrongAnswerList";
 
 interface ExamResultProps {
   sessionId: string;
 }
 
-// 이 단계(2단계-F-1)에서는 데이터 조회와 로딩/에러/미종료 리다이렉트까지만
-// 다룬다. 차트와 오답 목록 UI는 다음 커밋(F-2)에서 이어서 추가한다.
 export function ExamResult({ sessionId }: ExamResultProps) {
   const router = useRouter();
 
@@ -63,17 +63,19 @@ export function ExamResult({ sessionId }: ExamResultProps) {
         {data.isPassed ? "합격 ✓" : "불합격 ✗"} · 총점 {data.totalScore}점
       </p>
 
-      <ul className="mt-6 space-y-1 text-sm">
-        {data.subjectScores.map((s) => (
-          <li key={s.subjectId}>
-            {s.subjectName}: {s.score}점 {s.isPassed ? "" : "(과락)"}
-          </li>
-        ))}
-      </ul>
+      <section className="mt-8">
+        <h2 className="text-base font-semibold">과목별 점수</h2>
+        <div className="mt-4">
+          <ExamResultChart subjectScores={data.subjectScores} />
+        </div>
+      </section>
 
-      <p className="mt-6 text-sm text-ink/40">
-        (차트와 오답 목록은 다음 단계에서 추가됩니다 — 오답 {data.wrongAnswers.length}문제)
-      </p>
+      <section className="mt-10">
+        <h2 className="text-base font-semibold">오답 목록 ({data.wrongAnswers.length}문제)</h2>
+        <div className="mt-4">
+          <ExamWrongAnswerList wrongAnswers={data.wrongAnswers} />
+        </div>
+      </section>
     </div>
   );
 }
